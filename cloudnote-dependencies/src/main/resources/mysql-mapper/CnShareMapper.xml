@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyl.cloudnote.mapper.CnShareMapper">
+  <resultMap id="BaseResultMap" type="com.hyl.cloudnote.entity.CnShare">
+    <id column="cn_share_id" jdbcType="VARCHAR" property="cnShareId" />
+    <result column="cn_share_title" jdbcType="VARCHAR" property="cnShareTitle" />
+    <result column="cn_note_id" jdbcType="VARCHAR" property="cnNoteId" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.hyl.cloudnote.entity.CnShare">
+    <result column="cn_share_body" jdbcType="LONGVARCHAR" property="cnShareBody" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    cn_share_id, cn_share_title, cn_note_id
+  </sql>
+  <sql id="Blob_Column_List">
+    cn_share_body
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.hyl.cloudnote.entity.CnShareExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from cn_share
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.hyl.cloudnote.entity.CnShareExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from cn_share
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from cn_share
+    where cn_share_id = #{cnShareId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from cn_share
+    where cn_share_id = #{cnShareId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hyl.cloudnote.entity.CnShareExample">
+    delete from cn_share
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hyl.cloudnote.entity.CnShare">
+    insert into cn_share (cn_share_id, cn_share_title, cn_note_id, 
+      cn_share_body)
+    values (#{cnShareId,jdbcType=VARCHAR}, #{cnShareTitle,jdbcType=VARCHAR}, #{cnNoteId,jdbcType=VARCHAR}, 
+      #{cnShareBody,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hyl.cloudnote.entity.CnShare">
+    insert into cn_share
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cnShareId != null">
+        cn_share_id,
+      </if>
+      <if test="cnShareTitle != null">
+        cn_share_title,
+      </if>
+      <if test="cnNoteId != null">
+        cn_note_id,
+      </if>
+      <if test="cnShareBody != null">
+        cn_share_body,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cnShareId != null">
+        #{cnShareId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnShareTitle != null">
+        #{cnShareTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNoteId != null">
+        #{cnNoteId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnShareBody != null">
+        #{cnShareBody,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hyl.cloudnote.entity.CnShareExample" resultType="java.lang.Long">
+    select count(*) from cn_share
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update cn_share
+    <set>
+      <if test="record.cnShareId != null">
+        cn_share_id = #{record.cnShareId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cnShareTitle != null">
+        cn_share_title = #{record.cnShareTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cnNoteId != null">
+        cn_note_id = #{record.cnNoteId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cnShareBody != null">
+        cn_share_body = #{record.cnShareBody,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update cn_share
+    set cn_share_id = #{record.cnShareId,jdbcType=VARCHAR},
+      cn_share_title = #{record.cnShareTitle,jdbcType=VARCHAR},
+      cn_note_id = #{record.cnNoteId,jdbcType=VARCHAR},
+      cn_share_body = #{record.cnShareBody,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update cn_share
+    set cn_share_id = #{record.cnShareId,jdbcType=VARCHAR},
+      cn_share_title = #{record.cnShareTitle,jdbcType=VARCHAR},
+      cn_note_id = #{record.cnNoteId,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyl.cloudnote.entity.CnShare">
+    update cn_share
+    <set>
+      <if test="cnShareTitle != null">
+        cn_share_title = #{cnShareTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNoteId != null">
+        cn_note_id = #{cnNoteId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnShareBody != null">
+        cn_share_body = #{cnShareBody,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where cn_share_id = #{cnShareId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.hyl.cloudnote.entity.CnShare">
+    update cn_share
+    set cn_share_title = #{cnShareTitle,jdbcType=VARCHAR},
+      cn_note_id = #{cnNoteId,jdbcType=VARCHAR},
+      cn_share_body = #{cnShareBody,jdbcType=LONGVARCHAR}
+    where cn_share_id = #{cnShareId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyl.cloudnote.entity.CnShare">
+    update cn_share
+    set cn_share_title = #{cnShareTitle,jdbcType=VARCHAR},
+      cn_note_id = #{cnNoteId,jdbcType=VARCHAR}
+    where cn_share_id = #{cnShareId,jdbcType=VARCHAR}
+  </update>
+</mapper>

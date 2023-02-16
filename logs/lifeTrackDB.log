@@ -1,0 +1,387 @@
+2023-02-16 16:40:31,806:INFO main (StartupInfoLogger.java:50) - Starting CloudnoteApplication on HUANGYL-PC with PID 7688 (D:\workspace-person\cloudnotebook\cloudnote-admin\target\classes started by HUANGYL in D:\workspace-person\cloudnotebook)
+2023-02-16 16:40:31,816:DEBUG main (StartupInfoLogger.java:53) - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+2023-02-16 16:40:31,817:INFO main (SpringApplication.java:650) - The following profiles are active: dev
+2023-02-16 16:40:32,735:INFO main (RepositoryConfigurationDelegate.java:244) - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-02-16 16:40:32,740:INFO main (RepositoryConfigurationDelegate.java:126) - Bootstrapping Spring Data repositories in DEFAULT mode.
+2023-02-16 16:40:32,821:INFO main (RepositoryConfigurationDelegate.java:182) - Finished Spring Data repository scanning in 62ms. Found 0 repository interfaces.
+2023-02-16 16:40:33,275:INFO main (PostProcessorRegistrationDelegate.java:330) - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$6dab8b71] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-02-16 16:40:33,638:INFO main (TomcatWebServer.java:90) - Tomcat initialized with port(s): 8088 (http)
+2023-02-16 16:40:33,656:INFO main (DirectJDKLog.java:173) - Initializing ProtocolHandler ["http-nio-8088"]
+2023-02-16 16:40:33,665:INFO main (DirectJDKLog.java:173) - Starting service [Tomcat]
+2023-02-16 16:40:33,667:INFO main (DirectJDKLog.java:173) - Starting Servlet engine: [Apache Tomcat/9.0.21]
+2023-02-16 16:40:33,674:INFO main (DirectJDKLog.java:173) - Loaded APR based Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+2023-02-16 16:40:33,674:INFO main (DirectJDKLog.java:173) - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2023-02-16 16:40:33,675:INFO main (DirectJDKLog.java:173) - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2023-02-16 16:40:33,679:INFO main (DirectJDKLog.java:173) - OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+2023-02-16 16:40:33,898:INFO main (DirectJDKLog.java:173) - Initializing Spring embedded WebApplicationContext
+2023-02-16 16:40:33,899:INFO main (ServletWebServerApplicationContext.java:283) - Root WebApplicationContext: initialization completed in 2023 ms
+2023-02-16 16:40:34,372:INFO main (DruidDataSourceAutoConfigure.java:56) - Init DruidDataSource
+2023-02-16 16:40:34,484:INFO main (DruidDataSource.java:983) - {dataSource-1} inited
+2023-02-16 16:40:35,621:INFO main (ExecutorConfigurationSupport.java:171) - Initializing ExecutorService 'taskScheduler'
+2023-02-16 16:40:35,764:INFO main (AbstractConnectionFactory.java:460) - Attempting to connect to: [192.168.150.133:5673]
+2023-02-16 16:40:35,811:INFO main (AbstractConnectionFactory.java:496) - Created new connection: rabbitConnectionFactory#7e7743ec:0/SimpleConnection@273293c8 [delegate=amqp://guest@192.168.150.133:5673/, localPort= 50283]
+2023-02-16 16:40:35,885:INFO main (DirectJDKLog.java:173) - Starting ProtocolHandler ["http-nio-8088"]
+2023-02-16 16:40:35,922:INFO main (TomcatWebServer.java:202) - Tomcat started on port(s): 8088 (http) with context path ''
+2023-02-16 16:40:35,928:INFO main (StartupInfoLogger.java:59) - Started CloudnoteApplication in 4.595 seconds (JVM running for 6.867)
+2023-02-16 16:41:00,805:INFO http-nio-8088-exec-2 (DirectJDKLog.java:173) - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-16 16:41:00,806:INFO http-nio-8088-exec-2 (FrameworkServlet.java:524) - Initializing Servlet 'dispatcherServlet'
+2023-02-16 16:41:00,815:INFO http-nio-8088-exec-2 (FrameworkServlet.java:546) - Completed initialization in 9 ms
+2023-02-16 16:41:00,877:INFO org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1 (DelSurplusImageFiles.java:42) - DelSurplusImageFiles_queueConsumer_del_surplus_image_files:d1a76f6a-073c-4655-a2cc-7d223521d374
+2023-02-16 16:41:27,433:INFO org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1 (DelSurplusImageFiles.java:46) - DelSurplusImageFiles_queueConsumer_filePath:D:\workspace-person\cloudnotebook/static/image/upload/ueditor/d1a76f6a-073c-4655-a2cc-7d223521d374
+2023-02-16 16:41:27,991:INFO Thread-13 (SimpleMessageListenerContainer.java:586) - Waiting for workers to finish.
+2023-02-16 16:41:28,660:INFO Thread-13 (SimpleMessageListenerContainer.java:589) - Successfully waited for workers to finish.
+2023-02-16 16:41:28,666:INFO Thread-13 (ExecutorConfigurationSupport.java:208) - Shutting down ExecutorService 'taskScheduler'
+2023-02-16 16:41:28,667:INFO Thread-13 (AbstractMessageListenerContainer.java:1226) - Shutdown ignored - container is not active already
+2023-02-16 16:41:28,684:INFO Thread-13 (DruidDataSource.java:2024) - {dataSource-1} closing ...
+2023-02-16 16:41:28,686:INFO Thread-13 (DruidDataSource.java:2096) - {dataSource-1} closed
+2023-02-16 17:00:28,709:INFO main (StartupInfoLogger.java:50) - Starting CloudnoteApplication on HUANGYL-PC with PID 22808 (D:\workspace-person\cloudnotebook\cloudnote-admin\target\classes started by HUANGYL in D:\workspace-person\cloudnotebook)
+2023-02-16 17:00:28,723:DEBUG main (StartupInfoLogger.java:53) - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+2023-02-16 17:00:28,723:INFO main (SpringApplication.java:650) - The following profiles are active: dev
+2023-02-16 17:00:29,677:INFO main (RepositoryConfigurationDelegate.java:244) - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-02-16 17:00:29,683:INFO main (RepositoryConfigurationDelegate.java:126) - Bootstrapping Spring Data repositories in DEFAULT mode.
+2023-02-16 17:00:29,760:INFO main (RepositoryConfigurationDelegate.java:182) - Finished Spring Data repository scanning in 56ms. Found 0 repository interfaces.
+2023-02-16 17:00:30,201:INFO main (PostProcessorRegistrationDelegate.java:330) - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$286e6786] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-02-16 17:00:30,547:INFO main (TomcatWebServer.java:90) - Tomcat initialized with port(s): 8088 (http)
+2023-02-16 17:00:30,566:INFO main (DirectJDKLog.java:173) - Initializing ProtocolHandler ["http-nio-8088"]
+2023-02-16 17:00:30,577:INFO main (DirectJDKLog.java:173) - Starting service [Tomcat]
+2023-02-16 17:00:30,578:INFO main (DirectJDKLog.java:173) - Starting Servlet engine: [Apache Tomcat/9.0.21]
+2023-02-16 17:00:30,587:INFO main (DirectJDKLog.java:173) - Loaded APR based Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+2023-02-16 17:00:30,588:INFO main (DirectJDKLog.java:173) - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2023-02-16 17:00:30,588:INFO main (DirectJDKLog.java:173) - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2023-02-16 17:00:30,592:INFO main (DirectJDKLog.java:173) - OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+2023-02-16 17:00:30,960:INFO main (DirectJDKLog.java:173) - Initializing Spring embedded WebApplicationContext
+2023-02-16 17:00:30,960:INFO main (ServletWebServerApplicationContext.java:283) - Root WebApplicationContext: initialization completed in 2148 ms
+2023-02-16 17:00:31,592:INFO main (DruidDataSourceAutoConfigure.java:56) - Init DruidDataSource
+2023-02-16 17:00:31,717:INFO main (DruidDataSource.java:983) - {dataSource-1} inited
+2023-02-16 17:00:33,063:INFO main (ExecutorConfigurationSupport.java:171) - Initializing ExecutorService 'taskScheduler'
+2023-02-16 17:00:33,213:INFO main (AbstractConnectionFactory.java:460) - Attempting to connect to: [192.168.150.133:5673]
+2023-02-16 17:00:33,290:INFO main (AbstractConnectionFactory.java:496) - Created new connection: rabbitConnectionFactory#3e046e39:0/SimpleConnection@3cb195dd [delegate=amqp://guest@192.168.150.133:5673/, localPort= 51823]
+2023-02-16 17:00:33,361:INFO main (DirectJDKLog.java:173) - Starting ProtocolHandler ["http-nio-8088"]
+2023-02-16 17:00:33,395:INFO main (TomcatWebServer.java:202) - Tomcat started on port(s): 8088 (http) with context path ''
+2023-02-16 17:00:33,399:INFO main (StartupInfoLogger.java:59) - Started CloudnoteApplication in 5.266 seconds (JVM running for 7.932)
+2023-02-16 17:02:54,794:INFO http-nio-8088-exec-2 (DirectJDKLog.java:173) - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-16 17:02:54,794:INFO http-nio-8088-exec-2 (FrameworkServlet.java:524) - Initializing Servlet 'dispatcherServlet'
+2023-02-16 17:02:54,802:INFO http-nio-8088-exec-2 (FrameworkServlet.java:546) - Completed initialization in 8 ms
+2023-02-16 17:02:54,839:WARN http-nio-8088-exec-2 (AbstractHandlerExceptionResolver.java:198) - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required String parameter 'cnUserId' is not present]
+2023-02-16 17:04:24,673:INFO Thread-14 (SimpleMessageListenerContainer.java:586) - Waiting for workers to finish.
+2023-02-16 17:04:25,470:INFO Thread-14 (SimpleMessageListenerContainer.java:589) - Successfully waited for workers to finish.
+2023-02-16 17:04:25,472:INFO Thread-14 (ExecutorConfigurationSupport.java:208) - Shutting down ExecutorService 'taskScheduler'
+2023-02-16 17:04:25,473:INFO Thread-14 (AbstractMessageListenerContainer.java:1226) - Shutdown ignored - container is not active already
+2023-02-16 17:04:25,475:INFO Thread-14 (DruidDataSource.java:2024) - {dataSource-1} closing ...
+2023-02-16 17:04:25,476:INFO Thread-14 (DruidDataSource.java:2096) - {dataSource-1} closed
+2023-02-16 17:04:34,218:INFO main (StartupInfoLogger.java:50) - Starting CloudnoteApplication on HUANGYL-PC with PID 29808 (D:\workspace-person\cloudnotebook\cloudnote-admin\target\classes started by HUANGYL in D:\workspace-person\cloudnotebook)
+2023-02-16 17:04:34,227:DEBUG main (StartupInfoLogger.java:53) - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+2023-02-16 17:04:34,227:INFO main (SpringApplication.java:650) - The following profiles are active: dev
+2023-02-16 17:04:35,131:INFO main (RepositoryConfigurationDelegate.java:244) - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-02-16 17:04:35,137:INFO main (RepositoryConfigurationDelegate.java:126) - Bootstrapping Spring Data repositories in DEFAULT mode.
+2023-02-16 17:04:35,219:INFO main (RepositoryConfigurationDelegate.java:182) - Finished Spring Data repository scanning in 64ms. Found 0 repository interfaces.
+2023-02-16 17:04:35,704:INFO main (PostProcessorRegistrationDelegate.java:330) - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$691e53ae] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-02-16 17:04:36,063:INFO main (TomcatWebServer.java:90) - Tomcat initialized with port(s): 8088 (http)
+2023-02-16 17:04:36,084:INFO main (DirectJDKLog.java:173) - Initializing ProtocolHandler ["http-nio-8088"]
+2023-02-16 17:04:36,096:INFO main (DirectJDKLog.java:173) - Starting service [Tomcat]
+2023-02-16 17:04:36,097:INFO main (DirectJDKLog.java:173) - Starting Servlet engine: [Apache Tomcat/9.0.21]
+2023-02-16 17:04:36,106:INFO main (DirectJDKLog.java:173) - Loaded APR based Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+2023-02-16 17:04:36,107:INFO main (DirectJDKLog.java:173) - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2023-02-16 17:04:36,107:INFO main (DirectJDKLog.java:173) - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2023-02-16 17:04:36,112:INFO main (DirectJDKLog.java:173) - OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+2023-02-16 17:04:36,283:INFO main (DirectJDKLog.java:173) - Initializing Spring embedded WebApplicationContext
+2023-02-16 17:04:36,283:INFO main (ServletWebServerApplicationContext.java:283) - Root WebApplicationContext: initialization completed in 2001 ms
+2023-02-16 17:04:36,897:INFO main (DruidDataSourceAutoConfigure.java:56) - Init DruidDataSource
+2023-02-16 17:04:37,009:INFO main (DruidDataSource.java:983) - {dataSource-1} inited
+2023-02-16 17:04:38,114:INFO main (ExecutorConfigurationSupport.java:171) - Initializing ExecutorService 'taskScheduler'
+2023-02-16 17:04:38,269:INFO main (AbstractConnectionFactory.java:460) - Attempting to connect to: [192.168.150.133:5673]
+2023-02-16 17:04:38,315:INFO main (AbstractConnectionFactory.java:496) - Created new connection: rabbitConnectionFactory#36c7cbe1:0/SimpleConnection@e72fb04 [delegate=amqp://guest@192.168.150.133:5673/, localPort= 52225]
+2023-02-16 17:04:38,389:INFO main (DirectJDKLog.java:173) - Starting ProtocolHandler ["http-nio-8088"]
+2023-02-16 17:04:38,426:INFO main (TomcatWebServer.java:202) - Tomcat started on port(s): 8088 (http) with context path ''
+2023-02-16 17:04:38,430:INFO main (StartupInfoLogger.java:59) - Started CloudnoteApplication in 4.704 seconds (JVM running for 7.215)
+2023-02-16 17:11:56,816:INFO http-nio-8088-exec-2 (DirectJDKLog.java:173) - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-16 17:11:56,816:INFO http-nio-8088-exec-2 (FrameworkServlet.java:524) - Initializing Servlet 'dispatcherServlet'
+2023-02-16 17:11:56,827:INFO http-nio-8088-exec-2 (FrameworkServlet.java:546) - Completed initialization in 11 ms
+2023-02-16 17:11:56,864:WARN http-nio-8088-exec-2 (AbstractHandlerExceptionResolver.java:198) - Resolved [org.springframework.web.bind.MissingPathVariableException: Missing URI template variable 'cnUserId' for method parameter of type String]
+2023-02-16 17:15:55,980:INFO Thread-13 (SimpleMessageListenerContainer.java:586) - Waiting for workers to finish.
+2023-02-16 17:16:04,819:INFO main (StartupInfoLogger.java:50) - Starting CloudnoteApplication on HUANGYL-PC with PID 30496 (D:\workspace-person\cloudnotebook\cloudnote-admin\target\classes started by HUANGYL in D:\workspace-person\cloudnotebook)
+2023-02-16 17:16:04,830:DEBUG main (StartupInfoLogger.java:53) - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+2023-02-16 17:16:04,831:INFO main (SpringApplication.java:650) - The following profiles are active: dev
+2023-02-16 17:16:05,831:INFO main (RepositoryConfigurationDelegate.java:244) - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-02-16 17:16:05,837:INFO main (RepositoryConfigurationDelegate.java:126) - Bootstrapping Spring Data repositories in DEFAULT mode.
+2023-02-16 17:16:05,923:INFO main (RepositoryConfigurationDelegate.java:182) - Finished Spring Data repository scanning in 68ms. Found 0 repository interfaces.
+2023-02-16 17:16:06,374:INFO main (PostProcessorRegistrationDelegate.java:330) - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$df9f2a4e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-02-16 17:16:06,741:INFO main (TomcatWebServer.java:90) - Tomcat initialized with port(s): 8088 (http)
+2023-02-16 17:16:06,762:INFO main (DirectJDKLog.java:173) - Initializing ProtocolHandler ["http-nio-8088"]
+2023-02-16 17:16:06,772:INFO main (DirectJDKLog.java:173) - Starting service [Tomcat]
+2023-02-16 17:16:06,774:INFO main (DirectJDKLog.java:173) - Starting Servlet engine: [Apache Tomcat/9.0.21]
+2023-02-16 17:16:06,782:INFO main (DirectJDKLog.java:173) - Loaded APR based Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+2023-02-16 17:16:06,783:INFO main (DirectJDKLog.java:173) - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2023-02-16 17:16:06,783:INFO main (DirectJDKLog.java:173) - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2023-02-16 17:16:06,788:INFO main (DirectJDKLog.java:173) - OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+2023-02-16 17:16:06,972:INFO main (DirectJDKLog.java:173) - Initializing Spring embedded WebApplicationContext
+2023-02-16 17:16:06,973:INFO main (ServletWebServerApplicationContext.java:283) - Root WebApplicationContext: initialization completed in 2074 ms
+2023-02-16 17:16:07,545:INFO main (DruidDataSourceAutoConfigure.java:56) - Init DruidDataSource
+2023-02-16 17:16:07,665:INFO main (DruidDataSource.java:983) - {dataSource-1} inited
+2023-02-16 17:16:08,874:INFO main (ExecutorConfigurationSupport.java:171) - Initializing ExecutorService 'taskScheduler'
+2023-02-16 17:16:09,035:INFO main (AbstractConnectionFactory.java:460) - Attempting to connect to: [192.168.150.133:5673]
+2023-02-16 17:16:09,086:INFO main (AbstractConnectionFactory.java:496) - Created new connection: rabbitConnectionFactory#35650279:0/SimpleConnection@3ce7490a [delegate=amqp://guest@192.168.150.133:5673/, localPort= 53429]
+2023-02-16 17:16:09,158:INFO main (DirectJDKLog.java:173) - Starting ProtocolHandler ["http-nio-8088"]
+2023-02-16 17:16:09,194:INFO main (TomcatWebServer.java:202) - Tomcat started on port(s): 8088 (http) with context path ''
+2023-02-16 17:16:09,198:INFO main (StartupInfoLogger.java:59) - Started CloudnoteApplication in 4.924 seconds (JVM running for 7.341)
+2023-02-16 17:16:22,452:INFO http-nio-8088-exec-1 (DirectJDKLog.java:173) - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-16 17:16:22,452:INFO http-nio-8088-exec-1 (FrameworkServlet.java:524) - Initializing Servlet 'dispatcherServlet'
+2023-02-16 17:16:22,462:INFO http-nio-8088-exec-1 (FrameworkServlet.java:546) - Completed initialization in 10 ms
+2023-02-16 17:17:51,885:INFO Thread-13 (SimpleMessageListenerContainer.java:586) - Waiting for workers to finish.
+2023-02-16 17:17:52,495:INFO Thread-13 (SimpleMessageListenerContainer.java:589) - Successfully waited for workers to finish.
+2023-02-16 17:17:52,498:INFO Thread-13 (ExecutorConfigurationSupport.java:208) - Shutting down ExecutorService 'taskScheduler'
+2023-02-16 17:17:52,499:INFO Thread-13 (AbstractMessageListenerContainer.java:1226) - Shutdown ignored - container is not active already
+2023-02-16 17:17:52,500:INFO Thread-13 (DruidDataSource.java:2024) - {dataSource-1} closing ...
+2023-02-16 17:17:52,501:INFO Thread-13 (DruidDataSource.java:2096) - {dataSource-1} closed
+2023-02-16 17:18:01,632:INFO main (StartupInfoLogger.java:50) - Starting CloudnoteApplication on HUANGYL-PC with PID 24392 (D:\workspace-person\cloudnotebook\cloudnote-admin\target\classes started by HUANGYL in D:\workspace-person\cloudnotebook)
+2023-02-16 17:18:01,644:DEBUG main (StartupInfoLogger.java:53) - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+2023-02-16 17:18:01,644:INFO main (SpringApplication.java:650) - The following profiles are active: dev
+2023-02-16 17:18:02,543:INFO main (RepositoryConfigurationDelegate.java:244) - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-02-16 17:18:02,548:INFO main (RepositoryConfigurationDelegate.java:126) - Bootstrapping Spring Data repositories in DEFAULT mode.
+2023-02-16 17:18:02,621:INFO main (RepositoryConfigurationDelegate.java:182) - Finished Spring Data repository scanning in 55ms. Found 0 repository interfaces.
+2023-02-16 17:18:03,026:INFO main (PostProcessorRegistrationDelegate.java:330) - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2a09aa5a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-02-16 17:18:03,351:INFO main (TomcatWebServer.java:90) - Tomcat initialized with port(s): 8088 (http)
+2023-02-16 17:18:03,369:INFO main (DirectJDKLog.java:173) - Initializing ProtocolHandler ["http-nio-8088"]
+2023-02-16 17:18:03,381:INFO main (DirectJDKLog.java:173) - Starting service [Tomcat]
+2023-02-16 17:18:03,382:INFO main (DirectJDKLog.java:173) - Starting Servlet engine: [Apache Tomcat/9.0.21]
+2023-02-16 17:18:03,390:INFO main (DirectJDKLog.java:173) - Loaded APR based Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+2023-02-16 17:18:03,391:INFO main (DirectJDKLog.java:173) - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2023-02-16 17:18:03,391:INFO main (DirectJDKLog.java:173) - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2023-02-16 17:18:03,395:INFO main (DirectJDKLog.java:173) - OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+2023-02-16 17:18:03,631:INFO main (DirectJDKLog.java:173) - Initializing Spring embedded WebApplicationContext
+2023-02-16 17:18:03,631:INFO main (ServletWebServerApplicationContext.java:283) - Root WebApplicationContext: initialization completed in 1920 ms
+2023-02-16 17:18:04,087:INFO main (DruidDataSourceAutoConfigure.java:56) - Init DruidDataSource
+2023-02-16 17:18:04,223:INFO main (DruidDataSource.java:983) - {dataSource-1} inited
+2023-02-16 17:18:05,478:INFO main (ExecutorConfigurationSupport.java:171) - Initializing ExecutorService 'taskScheduler'
+2023-02-16 17:18:05,622:INFO main (AbstractConnectionFactory.java:460) - Attempting to connect to: [192.168.150.133:5673]
+2023-02-16 17:18:05,670:INFO main (AbstractConnectionFactory.java:496) - Created new connection: rabbitConnectionFactory#6dce59e:0/SimpleConnection@7a1ddbf1 [delegate=amqp://guest@192.168.150.133:5673/, localPort= 53612]
+2023-02-16 17:18:05,740:INFO main (DirectJDKLog.java:173) - Starting ProtocolHandler ["http-nio-8088"]
+2023-02-16 17:18:05,774:INFO main (TomcatWebServer.java:202) - Tomcat started on port(s): 8088 (http) with context path ''
+2023-02-16 17:18:05,778:INFO main (StartupInfoLogger.java:59) - Started CloudnoteApplication in 4.662 seconds (JVM running for 7.184)
+2023-02-16 17:19:50,233:INFO http-nio-8088-exec-2 (DirectJDKLog.java:173) - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-16 17:19:50,233:INFO http-nio-8088-exec-2 (FrameworkServlet.java:524) - Initializing Servlet 'dispatcherServlet'
+2023-02-16 17:19:50,244:INFO http-nio-8088-exec-2 (FrameworkServlet.java:546) - Completed initialization in 10 ms
+2023-02-16 17:23:10,496:WARN AMQP Connection 192.168.150.133:5673 (ForgivingExceptionHandler.java:115) - An unexpected connection driver error occured (Exception message: Connection reset)
+2023-02-16 17:23:10,501:ERROR AMQP Connection 192.168.150.133:5673 (CachingConnectionFactory.java:1517) - Channel shutdown: connection error
+2023-02-16 17:23:10,512:ERROR http-nio-8088-exec-2 (DirectJDKLog.java:175) - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at org.springframework.amqp.support.converter.SimpleMessageConverter.createMessage(SimpleMessageConverter.java:161) ~[spring-amqp-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.amqp.support.converter.AbstractMessageConverter.createMessage(AbstractMessageConverter.java:88) ~[spring-amqp-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.amqp.support.converter.AbstractMessageConverter.toMessage(AbstractMessageConverter.java:70) ~[spring-amqp-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.amqp.support.converter.AbstractMessageConverter.toMessage(AbstractMessageConverter.java:58) ~[spring-amqp-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertMessageIfNecessary(RabbitTemplate.java:1738) ~[spring-rabbit-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertAndSend(RabbitTemplate.java:1060) ~[spring-rabbit-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertAndSend(RabbitTemplate.java:1042) ~[spring-rabbit-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at com.hyl.cloudnote.service.common.SendMsgService.sendMsg(SendMsgService.java:20) ~[classes/:?]
+	at com.hyl.cloudnote.service.impl.UserServiceImpl.logout(UserServiceImpl.java:91) ~[classes/:?]
+	at com.hyl.cloudnote.controller.user.UserLoginController.logout(UserLoginController.java:52) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_91]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_91]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_91]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_91]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1039) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:96) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:853) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [?:1.8.0_91]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_91]
+2023-02-16 17:23:10,878:INFO Thread-13 (SimpleMessageListenerContainer.java:586) - Waiting for workers to finish.
+2023-02-16 17:23:10,878:INFO Thread-13 (SimpleMessageListenerContainer.java:589) - Successfully waited for workers to finish.
+2023-02-16 17:23:10,881:INFO Thread-13 (ExecutorConfigurationSupport.java:208) - Shutting down ExecutorService 'taskScheduler'
+2023-02-16 17:23:10,882:INFO Thread-13 (AbstractMessageListenerContainer.java:1226) - Shutdown ignored - container is not active already
+2023-02-16 17:23:10,883:INFO Thread-13 (DruidDataSource.java:2024) - {dataSource-1} closing ...
+2023-02-16 17:23:10,885:INFO Thread-13 (DruidDataSource.java:2096) - {dataSource-1} closed
+2023-02-16 17:23:22,915:INFO main (StartupInfoLogger.java:50) - Starting CloudnoteApplication on HUANGYL-PC with PID 12064 (D:\workspace-person\cloudnotebook\cloudnote-admin\target\classes started by HUANGYL in D:\workspace-person\cloudnotebook)
+2023-02-16 17:23:22,926:DEBUG main (StartupInfoLogger.java:53) - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+2023-02-16 17:23:22,926:INFO main (SpringApplication.java:650) - The following profiles are active: dev
+2023-02-16 17:23:23,849:INFO main (RepositoryConfigurationDelegate.java:244) - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-02-16 17:23:23,855:INFO main (RepositoryConfigurationDelegate.java:126) - Bootstrapping Spring Data repositories in DEFAULT mode.
+2023-02-16 17:23:23,934:INFO main (RepositoryConfigurationDelegate.java:182) - Finished Spring Data repository scanning in 57ms. Found 0 repository interfaces.
+2023-02-16 17:23:24,425:INFO main (PostProcessorRegistrationDelegate.java:330) - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ab68308b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-02-16 17:23:24,745:INFO main (TomcatWebServer.java:90) - Tomcat initialized with port(s): 8088 (http)
+2023-02-16 17:23:24,764:INFO main (DirectJDKLog.java:173) - Initializing ProtocolHandler ["http-nio-8088"]
+2023-02-16 17:23:24,773:INFO main (DirectJDKLog.java:173) - Starting service [Tomcat]
+2023-02-16 17:23:24,775:INFO main (DirectJDKLog.java:173) - Starting Servlet engine: [Apache Tomcat/9.0.21]
+2023-02-16 17:23:24,784:INFO main (DirectJDKLog.java:173) - Loaded APR based Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+2023-02-16 17:23:24,784:INFO main (DirectJDKLog.java:173) - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2023-02-16 17:23:24,784:INFO main (DirectJDKLog.java:173) - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2023-02-16 17:23:24,789:INFO main (DirectJDKLog.java:173) - OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+2023-02-16 17:23:25,002:INFO main (DirectJDKLog.java:173) - Initializing Spring embedded WebApplicationContext
+2023-02-16 17:23:25,003:INFO main (ServletWebServerApplicationContext.java:283) - Root WebApplicationContext: initialization completed in 2015 ms
+2023-02-16 17:23:25,455:INFO main (DruidDataSourceAutoConfigure.java:56) - Init DruidDataSource
+2023-02-16 17:23:25,573:INFO main (DruidDataSource.java:983) - {dataSource-1} inited
+2023-02-16 17:23:26,831:INFO main (ExecutorConfigurationSupport.java:171) - Initializing ExecutorService 'taskScheduler'
+2023-02-16 17:23:26,989:INFO main (AbstractConnectionFactory.java:460) - Attempting to connect to: [192.168.150.133:5673]
+2023-02-16 17:23:27,042:INFO main (AbstractConnectionFactory.java:496) - Created new connection: rabbitConnectionFactory#3a1f2a1:0/SimpleConnection@334b392d [delegate=amqp://guest@192.168.150.133:5673/, localPort= 64422]
+2023-02-16 17:23:27,123:INFO main (DirectJDKLog.java:173) - Starting ProtocolHandler ["http-nio-8088"]
+2023-02-16 17:23:27,161:INFO main (TomcatWebServer.java:202) - Tomcat started on port(s): 8088 (http) with context path ''
+2023-02-16 17:23:27,165:INFO main (StartupInfoLogger.java:59) - Started CloudnoteApplication in 4.79 seconds (JVM running for 7.164)
+2023-02-16 17:25:31,089:INFO http-nio-8088-exec-2 (DirectJDKLog.java:173) - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-16 17:25:31,089:INFO http-nio-8088-exec-2 (FrameworkServlet.java:524) - Initializing Servlet 'dispatcherServlet'
+2023-02-16 17:25:31,099:INFO http-nio-8088-exec-2 (FrameworkServlet.java:546) - Completed initialization in 10 ms
+2023-02-16 17:25:31,132:WARN http-nio-8088-exec-2 (AbstractHandlerExceptionResolver.java:198) - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required String parameter 'cnUserId' is not present]
+2023-02-16 17:32:05,253:INFO Thread-13 (SimpleMessageListenerContainer.java:586) - Waiting for workers to finish.
+2023-02-16 17:32:05,358:INFO Thread-13 (SimpleMessageListenerContainer.java:589) - Successfully waited for workers to finish.
+2023-02-16 17:32:05,361:INFO Thread-13 (ExecutorConfigurationSupport.java:208) - Shutting down ExecutorService 'taskScheduler'
+2023-02-16 17:32:05,362:INFO Thread-13 (AbstractMessageListenerContainer.java:1226) - Shutdown ignored - container is not active already
+2023-02-16 17:32:05,364:INFO Thread-13 (DruidDataSource.java:2024) - {dataSource-1} closing ...
+2023-02-16 17:32:05,365:INFO Thread-13 (DruidDataSource.java:2096) - {dataSource-1} closed
+2023-02-16 17:32:15,294:INFO main (StartupInfoLogger.java:50) - Starting CloudnoteApplication on HUANGYL-PC with PID 28628 (D:\workspace-person\cloudnotebook\cloudnote-admin\target\classes started by HUANGYL in D:\workspace-person\cloudnotebook)
+2023-02-16 17:32:15,303:DEBUG main (StartupInfoLogger.java:53) - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+2023-02-16 17:32:15,304:INFO main (SpringApplication.java:650) - The following profiles are active: dev
+2023-02-16 17:32:16,211:INFO main (RepositoryConfigurationDelegate.java:244) - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-02-16 17:32:16,217:INFO main (RepositoryConfigurationDelegate.java:126) - Bootstrapping Spring Data repositories in DEFAULT mode.
+2023-02-16 17:32:16,292:INFO main (RepositoryConfigurationDelegate.java:182) - Finished Spring Data repository scanning in 57ms. Found 0 repository interfaces.
+2023-02-16 17:32:16,718:INFO main (PostProcessorRegistrationDelegate.java:330) - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$76083b8e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-02-16 17:32:17,098:INFO main (TomcatWebServer.java:90) - Tomcat initialized with port(s): 8088 (http)
+2023-02-16 17:32:17,130:INFO main (DirectJDKLog.java:173) - Initializing ProtocolHandler ["http-nio-8088"]
+2023-02-16 17:32:17,141:INFO main (DirectJDKLog.java:173) - Starting service [Tomcat]
+2023-02-16 17:32:17,142:INFO main (DirectJDKLog.java:173) - Starting Servlet engine: [Apache Tomcat/9.0.21]
+2023-02-16 17:32:17,149:INFO main (DirectJDKLog.java:173) - Loaded APR based Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+2023-02-16 17:32:17,150:INFO main (DirectJDKLog.java:173) - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2023-02-16 17:32:17,150:INFO main (DirectJDKLog.java:173) - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2023-02-16 17:32:17,155:INFO main (DirectJDKLog.java:173) - OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+2023-02-16 17:32:17,384:INFO main (DirectJDKLog.java:173) - Initializing Spring embedded WebApplicationContext
+2023-02-16 17:32:17,384:INFO main (ServletWebServerApplicationContext.java:283) - Root WebApplicationContext: initialization completed in 2019 ms
+2023-02-16 17:32:17,852:INFO main (DruidDataSourceAutoConfigure.java:56) - Init DruidDataSource
+2023-02-16 17:32:17,973:INFO main (DruidDataSource.java:983) - {dataSource-1} inited
+2023-02-16 17:32:19,143:INFO main (ExecutorConfigurationSupport.java:171) - Initializing ExecutorService 'taskScheduler'
+2023-02-16 17:32:19,301:INFO main (AbstractConnectionFactory.java:460) - Attempting to connect to: [192.168.150.133:5673]
+2023-02-16 17:32:19,350:INFO main (AbstractConnectionFactory.java:496) - Created new connection: rabbitConnectionFactory#3d53e6f7:0/SimpleConnection@59371066 [delegate=amqp://guest@192.168.150.133:5673/, localPort= 65396]
+2023-02-16 17:32:19,423:INFO main (DirectJDKLog.java:173) - Starting ProtocolHandler ["http-nio-8088"]
+2023-02-16 17:32:19,457:INFO main (TomcatWebServer.java:202) - Tomcat started on port(s): 8088 (http) with context path ''
+2023-02-16 17:32:19,461:INFO main (StartupInfoLogger.java:59) - Started CloudnoteApplication in 4.717 seconds (JVM running for 7.172)
+2023-02-16 17:32:23,926:INFO http-nio-8088-exec-1 (DirectJDKLog.java:173) - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-16 17:32:23,927:INFO http-nio-8088-exec-1 (FrameworkServlet.java:524) - Initializing Servlet 'dispatcherServlet'
+2023-02-16 17:32:23,938:INFO http-nio-8088-exec-1 (FrameworkServlet.java:546) - Completed initialization in 11 ms
+2023-02-16 17:32:43,773:ERROR http-nio-8088-exec-1 (DirectJDKLog.java:175) - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at org.springframework.amqp.support.converter.SimpleMessageConverter.createMessage(SimpleMessageConverter.java:161) ~[spring-amqp-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.amqp.support.converter.AbstractMessageConverter.createMessage(AbstractMessageConverter.java:88) ~[spring-amqp-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.amqp.support.converter.AbstractMessageConverter.toMessage(AbstractMessageConverter.java:70) ~[spring-amqp-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.amqp.support.converter.AbstractMessageConverter.toMessage(AbstractMessageConverter.java:58) ~[spring-amqp-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertMessageIfNecessary(RabbitTemplate.java:1738) ~[spring-rabbit-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertAndSend(RabbitTemplate.java:1060) ~[spring-rabbit-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertAndSend(RabbitTemplate.java:1042) ~[spring-rabbit-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at com.hyl.cloudnote.service.common.SendMsgService.sendMsg(SendMsgService.java:20) ~[classes/:?]
+	at com.hyl.cloudnote.service.impl.UserServiceImpl.logout(UserServiceImpl.java:91) ~[classes/:?]
+	at com.hyl.cloudnote.controller.user.UserLoginController.logout(UserLoginController.java:54) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_91]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_91]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_91]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_91]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1039) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:96) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:853) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [?:1.8.0_91]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_91]
+2023-02-16 17:33:18,984:INFO Thread-13 (SimpleMessageListenerContainer.java:586) - Waiting for workers to finish.
+2023-02-16 17:33:27,743:INFO main (StartupInfoLogger.java:50) - Starting CloudnoteApplication on HUANGYL-PC with PID 29284 (D:\workspace-person\cloudnotebook\cloudnote-admin\target\classes started by HUANGYL in D:\workspace-person\cloudnotebook)
+2023-02-16 17:33:27,753:DEBUG main (StartupInfoLogger.java:53) - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+2023-02-16 17:33:27,754:INFO main (SpringApplication.java:650) - The following profiles are active: dev
+2023-02-16 17:33:28,660:INFO main (RepositoryConfigurationDelegate.java:244) - Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-02-16 17:33:28,666:INFO main (RepositoryConfigurationDelegate.java:126) - Bootstrapping Spring Data repositories in DEFAULT mode.
+2023-02-16 17:33:28,746:INFO main (RepositoryConfigurationDelegate.java:182) - Finished Spring Data repository scanning in 61ms. Found 0 repository interfaces.
+2023-02-16 17:33:29,160:INFO main (PostProcessorRegistrationDelegate.java:330) - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c58c5fd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-02-16 17:33:29,491:INFO main (TomcatWebServer.java:90) - Tomcat initialized with port(s): 8088 (http)
+2023-02-16 17:33:29,511:INFO main (DirectJDKLog.java:173) - Initializing ProtocolHandler ["http-nio-8088"]
+2023-02-16 17:33:29,521:INFO main (DirectJDKLog.java:173) - Starting service [Tomcat]
+2023-02-16 17:33:29,522:INFO main (DirectJDKLog.java:173) - Starting Servlet engine: [Apache Tomcat/9.0.21]
+2023-02-16 17:33:29,532:INFO main (DirectJDKLog.java:173) - Loaded APR based Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+2023-02-16 17:33:29,532:INFO main (DirectJDKLog.java:173) - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2023-02-16 17:33:29,532:INFO main (DirectJDKLog.java:173) - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2023-02-16 17:33:29,536:INFO main (DirectJDKLog.java:173) - OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+2023-02-16 17:33:29,763:INFO main (DirectJDKLog.java:173) - Initializing Spring embedded WebApplicationContext
+2023-02-16 17:33:29,764:INFO main (ServletWebServerApplicationContext.java:283) - Root WebApplicationContext: initialization completed in 1946 ms
+2023-02-16 17:33:30,227:INFO main (DruidDataSourceAutoConfigure.java:56) - Init DruidDataSource
+2023-02-16 17:33:30,341:INFO main (DruidDataSource.java:983) - {dataSource-1} inited
+2023-02-16 17:33:31,468:INFO main (ExecutorConfigurationSupport.java:171) - Initializing ExecutorService 'taskScheduler'
+2023-02-16 17:33:31,618:INFO main (AbstractConnectionFactory.java:460) - Attempting to connect to: [192.168.150.133:5673]
+2023-02-16 17:33:31,668:INFO main (AbstractConnectionFactory.java:496) - Created new connection: rabbitConnectionFactory#3d9f0a5:0/SimpleConnection@61c5fd78 [delegate=amqp://guest@192.168.150.133:5673/, localPort= 65515]
+2023-02-16 17:33:31,742:INFO main (DirectJDKLog.java:173) - Starting ProtocolHandler ["http-nio-8088"]
+2023-02-16 17:33:31,781:INFO main (TomcatWebServer.java:202) - Tomcat started on port(s): 8088 (http) with context path ''
+2023-02-16 17:33:31,785:INFO main (StartupInfoLogger.java:59) - Started CloudnoteApplication in 4.564 seconds (JVM running for 7.036)
+2023-02-16 17:33:39,357:INFO http-nio-8088-exec-1 (DirectJDKLog.java:173) - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-16 17:33:39,357:INFO http-nio-8088-exec-1 (FrameworkServlet.java:524) - Initializing Servlet 'dispatcherServlet'
+2023-02-16 17:33:39,366:INFO http-nio-8088-exec-1 (FrameworkServlet.java:546) - Completed initialization in 9 ms
+2023-02-16 17:35:04,599:INFO org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1 (DelSurplusImageFiles.java:42) - DelSurplusImageFiles_queueConsumer_del_surplus_image_files:d1a76f6a-073c-4655-a2cc-7d223521d374
+2023-02-16 17:35:05,367:INFO org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1 (DelSurplusImageFiles.java:46) - DelSurplusImageFiles_queueConsumer_filePath:D:\workspace-person\cloudnotebook/static/image/upload/ueditor/d1a76f6a-073c-4655-a2cc-7d223521d374
+2023-02-16 17:35:11,960:INFO Thread-13 (SimpleMessageListenerContainer.java:586) - Waiting for workers to finish.
+2023-02-16 17:35:12,674:INFO Thread-13 (SimpleMessageListenerContainer.java:589) - Successfully waited for workers to finish.
+2023-02-16 17:35:12,676:INFO Thread-13 (ExecutorConfigurationSupport.java:208) - Shutting down ExecutorService 'taskScheduler'
+2023-02-16 17:35:12,677:INFO Thread-13 (AbstractMessageListenerContainer.java:1226) - Shutdown ignored - container is not active already
+2023-02-16 17:35:12,679:INFO Thread-13 (DruidDataSource.java:2024) - {dataSource-1} closing ...
+2023-02-16 17:35:12,679:INFO Thread-13 (DruidDataSource.java:2096) - {dataSource-1} closed

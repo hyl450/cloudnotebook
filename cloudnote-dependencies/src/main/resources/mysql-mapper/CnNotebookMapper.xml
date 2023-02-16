@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyl.cloudnote.mapper.CnNotebookMapper">
+  <resultMap id="BaseResultMap" type="com.hyl.cloudnote.entity.CnNotebook">
+    <id column="cn_notebook_id" jdbcType="VARCHAR" property="cnNotebookId" />
+    <result column="cn_user_id" jdbcType="VARCHAR" property="cnUserId" />
+    <result column="cn_notebook_type_id" jdbcType="VARCHAR" property="cnNotebookTypeId" />
+    <result column="cn_notebook_name" jdbcType="VARCHAR" property="cnNotebookName" />
+    <result column="cn_notebook_createtime" jdbcType="TIMESTAMP" property="cnNotebookCreatetime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.hyl.cloudnote.entity.CnNotebook">
+    <result column="cn_notebook_desc" jdbcType="LONGVARCHAR" property="cnNotebookDesc" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    cn_notebook_id, cn_user_id, cn_notebook_type_id, cn_notebook_name, cn_notebook_createtime
+  </sql>
+  <sql id="Blob_Column_List">
+    cn_notebook_desc
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.hyl.cloudnote.entity.CnNotebookExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from cn_notebook
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.hyl.cloudnote.entity.CnNotebookExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from cn_notebook
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from cn_notebook
+    where cn_notebook_id = #{cnNotebookId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from cn_notebook
+    where cn_notebook_id = #{cnNotebookId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hyl.cloudnote.entity.CnNotebookExample">
+    delete from cn_notebook
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hyl.cloudnote.entity.CnNotebook">
+    insert into cn_notebook (cn_notebook_id, cn_user_id, cn_notebook_type_id, 
+      cn_notebook_name, cn_notebook_createtime, 
+      cn_notebook_desc)
+    values (#{cnNotebookId,jdbcType=VARCHAR}, #{cnUserId,jdbcType=VARCHAR}, #{cnNotebookTypeId,jdbcType=VARCHAR}, 
+      #{cnNotebookName,jdbcType=VARCHAR}, #{cnNotebookCreatetime,jdbcType=TIMESTAMP}, 
+      #{cnNotebookDesc,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hyl.cloudnote.entity.CnNotebook">
+    insert into cn_notebook
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cnNotebookId != null">
+        cn_notebook_id,
+      </if>
+      <if test="cnUserId != null">
+        cn_user_id,
+      </if>
+      <if test="cnNotebookTypeId != null">
+        cn_notebook_type_id,
+      </if>
+      <if test="cnNotebookName != null">
+        cn_notebook_name,
+      </if>
+      <if test="cnNotebookCreatetime != null">
+        cn_notebook_createtime,
+      </if>
+      <if test="cnNotebookDesc != null">
+        cn_notebook_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cnNotebookId != null">
+        #{cnNotebookId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnUserId != null">
+        #{cnUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNotebookTypeId != null">
+        #{cnNotebookTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNotebookName != null">
+        #{cnNotebookName,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNotebookCreatetime != null">
+        #{cnNotebookCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cnNotebookDesc != null">
+        #{cnNotebookDesc,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hyl.cloudnote.entity.CnNotebookExample" resultType="java.lang.Long">
+    select count(*) from cn_notebook
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update cn_notebook
+    <set>
+      <if test="record.cnNotebookId != null">
+        cn_notebook_id = #{record.cnNotebookId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cnUserId != null">
+        cn_user_id = #{record.cnUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cnNotebookTypeId != null">
+        cn_notebook_type_id = #{record.cnNotebookTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cnNotebookName != null">
+        cn_notebook_name = #{record.cnNotebookName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cnNotebookCreatetime != null">
+        cn_notebook_createtime = #{record.cnNotebookCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cnNotebookDesc != null">
+        cn_notebook_desc = #{record.cnNotebookDesc,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update cn_notebook
+    set cn_notebook_id = #{record.cnNotebookId,jdbcType=VARCHAR},
+      cn_user_id = #{record.cnUserId,jdbcType=VARCHAR},
+      cn_notebook_type_id = #{record.cnNotebookTypeId,jdbcType=VARCHAR},
+      cn_notebook_name = #{record.cnNotebookName,jdbcType=VARCHAR},
+      cn_notebook_createtime = #{record.cnNotebookCreatetime,jdbcType=TIMESTAMP},
+      cn_notebook_desc = #{record.cnNotebookDesc,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update cn_notebook
+    set cn_notebook_id = #{record.cnNotebookId,jdbcType=VARCHAR},
+      cn_user_id = #{record.cnUserId,jdbcType=VARCHAR},
+      cn_notebook_type_id = #{record.cnNotebookTypeId,jdbcType=VARCHAR},
+      cn_notebook_name = #{record.cnNotebookName,jdbcType=VARCHAR},
+      cn_notebook_createtime = #{record.cnNotebookCreatetime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyl.cloudnote.entity.CnNotebook">
+    update cn_notebook
+    <set>
+      <if test="cnUserId != null">
+        cn_user_id = #{cnUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNotebookTypeId != null">
+        cn_notebook_type_id = #{cnNotebookTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNotebookName != null">
+        cn_notebook_name = #{cnNotebookName,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNotebookCreatetime != null">
+        cn_notebook_createtime = #{cnNotebookCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cnNotebookDesc != null">
+        cn_notebook_desc = #{cnNotebookDesc,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where cn_notebook_id = #{cnNotebookId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.hyl.cloudnote.entity.CnNotebook">
+    update cn_notebook
+    set cn_user_id = #{cnUserId,jdbcType=VARCHAR},
+      cn_notebook_type_id = #{cnNotebookTypeId,jdbcType=VARCHAR},
+      cn_notebook_name = #{cnNotebookName,jdbcType=VARCHAR},
+      cn_notebook_createtime = #{cnNotebookCreatetime,jdbcType=TIMESTAMP},
+      cn_notebook_desc = #{cnNotebookDesc,jdbcType=LONGVARCHAR}
+    where cn_notebook_id = #{cnNotebookId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyl.cloudnote.entity.CnNotebook">
+    update cn_notebook
+    set cn_user_id = #{cnUserId,jdbcType=VARCHAR},
+      cn_notebook_type_id = #{cnNotebookTypeId,jdbcType=VARCHAR},
+      cn_notebook_name = #{cnNotebookName,jdbcType=VARCHAR},
+      cn_notebook_createtime = #{cnNotebookCreatetime,jdbcType=TIMESTAMP}
+    where cn_notebook_id = #{cnNotebookId,jdbcType=VARCHAR}
+  </update>
+</mapper>

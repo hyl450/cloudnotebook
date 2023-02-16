@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyl.cloudnote.mapper.CnNoteMapper">
+  <resultMap id="BaseResultMap" type="com.hyl.cloudnote.entity.CnNote">
+    <id column="cn_note_id" jdbcType="VARCHAR" property="cnNoteId" />
+    <result column="cn_notebook_id" jdbcType="VARCHAR" property="cnNotebookId" />
+    <result column="cn_user_id" jdbcType="VARCHAR" property="cnUserId" />
+    <result column="cn_note_status_id" jdbcType="VARCHAR" property="cnNoteStatusId" />
+    <result column="cn_note_type_id" jdbcType="VARCHAR" property="cnNoteTypeId" />
+    <result column="cn_note_title" jdbcType="VARCHAR" property="cnNoteTitle" />
+    <result column="cn_note_create_time" jdbcType="BIGINT" property="cnNoteCreateTime" />
+    <result column="cn_note_last_modify_time" jdbcType="BIGINT" property="cnNoteLastModifyTime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.hyl.cloudnote.entity.CnNote">
+    <result column="cn_note_body" jdbcType="LONGVARCHAR" property="cnNoteBody" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    cn_note_id, cn_notebook_id, cn_user_id, cn_note_status_id, cn_note_type_id, cn_note_title, 
+    cn_note_create_time, cn_note_last_modify_time
+  </sql>
+  <sql id="Blob_Column_List">
+    cn_note_body
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.hyl.cloudnote.entity.CnNoteExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from cn_note
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.hyl.cloudnote.entity.CnNoteExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from cn_note
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from cn_note
+    where cn_note_id = #{cnNoteId,jdbcType=VARCHAR}
+  </select>
+  <select id="findByBookId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from cn_note
+    where cn_notebook_id = #{cnNoteBookId,jdbcType=VARCHAR}
+  </select>
+  <select id="selectCnNoteByLikeBody" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from cn_note
+    where cn_user_id = #{cn_user_id,jdbcType=VARCHAR}
+    and cn_note_body like CONCAT('%','${body}','%')
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from cn_note
+    where cn_note_id = #{cnNoteId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hyl.cloudnote.entity.CnNoteExample">
+    delete from cn_note
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hyl.cloudnote.entity.CnNote">
+    insert into cn_note (cn_note_id, cn_notebook_id, cn_user_id, 
+      cn_note_status_id, cn_note_type_id, cn_note_title, 
+      cn_note_create_time, cn_note_last_modify_time, cn_note_body
+      )
+    values (#{cnNoteId,jdbcType=VARCHAR}, #{cnNotebookId,jdbcType=VARCHAR}, #{cnUserId,jdbcType=VARCHAR}, 
+      #{cnNoteStatusId,jdbcType=VARCHAR}, #{cnNoteTypeId,jdbcType=VARCHAR}, #{cnNoteTitle,jdbcType=VARCHAR}, 
+      #{cnNoteCreateTime,jdbcType=BIGINT}, #{cnNoteLastModifyTime,jdbcType=BIGINT}, #{cnNoteBody,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hyl.cloudnote.entity.CnNote">
+    insert into cn_note
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cnNoteId != null">
+        cn_note_id,
+      </if>
+      <if test="cnNotebookId != null">
+        cn_notebook_id,
+      </if>
+      <if test="cnUserId != null">
+        cn_user_id,
+      </if>
+      <if test="cnNoteStatusId != null">
+        cn_note_status_id,
+      </if>
+      <if test="cnNoteTypeId != null">
+        cn_note_type_id,
+      </if>
+      <if test="cnNoteTitle != null">
+        cn_note_title,
+      </if>
+      <if test="cnNoteCreateTime != null">
+        cn_note_create_time,
+      </if>
+      <if test="cnNoteLastModifyTime != null">
+        cn_note_last_modify_time,
+      </if>
+      <if test="cnNoteBody != null">
+        cn_note_body,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cnNoteId != null">
+        #{cnNoteId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNotebookId != null">
+        #{cnNotebookId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnUserId != null">
+        #{cnUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNoteStatusId != null">
+        #{cnNoteStatusId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNoteTypeId != null">
+        #{cnNoteTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNoteTitle != null">
+        #{cnNoteTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNoteCreateTime != null">
+        #{cnNoteCreateTime,jdbcType=BIGINT},
+      </if>
+      <if test="cnNoteLastModifyTime != null">
+        #{cnNoteLastModifyTime,jdbcType=BIGINT},
+      </if>
+      <if test="cnNoteBody != null">
+        #{cnNoteBody,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hyl.cloudnote.entity.CnNoteExample" resultType="java.lang.Long">
+    select count(*) from cn_note
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update cn_note
+    <set>
+      <if test="record.cnNoteId != null">
+        cn_note_id = #{record.cnNoteId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cnNotebookId != null">
+        cn_notebook_id = #{record.cnNotebookId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cnUserId != null">
+        cn_user_id = #{record.cnUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cnNoteStatusId != null">
+        cn_note_status_id = #{record.cnNoteStatusId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cnNoteTypeId != null">
+        cn_note_type_id = #{record.cnNoteTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cnNoteTitle != null">
+        cn_note_title = #{record.cnNoteTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cnNoteCreateTime != null">
+        cn_note_create_time = #{record.cnNoteCreateTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.cnNoteLastModifyTime != null">
+        cn_note_last_modify_time = #{record.cnNoteLastModifyTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.cnNoteBody != null">
+        cn_note_body = #{record.cnNoteBody,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update cn_note
+    set cn_note_id = #{record.cnNoteId,jdbcType=VARCHAR},
+      cn_notebook_id = #{record.cnNotebookId,jdbcType=VARCHAR},
+      cn_user_id = #{record.cnUserId,jdbcType=VARCHAR},
+      cn_note_status_id = #{record.cnNoteStatusId,jdbcType=VARCHAR},
+      cn_note_type_id = #{record.cnNoteTypeId,jdbcType=VARCHAR},
+      cn_note_title = #{record.cnNoteTitle,jdbcType=VARCHAR},
+      cn_note_create_time = #{record.cnNoteCreateTime,jdbcType=BIGINT},
+      cn_note_last_modify_time = #{record.cnNoteLastModifyTime,jdbcType=BIGINT},
+      cn_note_body = #{record.cnNoteBody,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update cn_note
+    set cn_note_id = #{record.cnNoteId,jdbcType=VARCHAR},
+      cn_notebook_id = #{record.cnNotebookId,jdbcType=VARCHAR},
+      cn_user_id = #{record.cnUserId,jdbcType=VARCHAR},
+      cn_note_status_id = #{record.cnNoteStatusId,jdbcType=VARCHAR},
+      cn_note_type_id = #{record.cnNoteTypeId,jdbcType=VARCHAR},
+      cn_note_title = #{record.cnNoteTitle,jdbcType=VARCHAR},
+      cn_note_create_time = #{record.cnNoteCreateTime,jdbcType=BIGINT},
+      cn_note_last_modify_time = #{record.cnNoteLastModifyTime,jdbcType=BIGINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyl.cloudnote.entity.CnNote">
+    update cn_note
+    <set>
+      <if test="cnNotebookId != null">
+        cn_notebook_id = #{cnNotebookId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnUserId != null">
+        cn_user_id = #{cnUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNoteStatusId != null">
+        cn_note_status_id = #{cnNoteStatusId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNoteTypeId != null">
+        cn_note_type_id = #{cnNoteTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNoteTitle != null">
+        cn_note_title = #{cnNoteTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNoteCreateTime != null">
+        cn_note_create_time = #{cnNoteCreateTime,jdbcType=BIGINT},
+      </if>
+      <if test="cnNoteLastModifyTime != null">
+        cn_note_last_modify_time = #{cnNoteLastModifyTime,jdbcType=BIGINT},
+      </if>
+      <if test="cnNoteBody != null">
+        cn_note_body = #{cnNoteBody,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where cn_note_id = #{cnNoteId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.hyl.cloudnote.entity.CnNote">
+    update cn_note
+    set cn_notebook_id = #{cnNotebookId,jdbcType=VARCHAR},
+      cn_user_id = #{cnUserId,jdbcType=VARCHAR},
+      cn_note_status_id = #{cnNoteStatusId,jdbcType=VARCHAR},
+      cn_note_type_id = #{cnNoteTypeId,jdbcType=VARCHAR},
+      cn_note_title = #{cnNoteTitle,jdbcType=VARCHAR},
+      cn_note_create_time = #{cnNoteCreateTime,jdbcType=BIGINT},
+      cn_note_last_modify_time = #{cnNoteLastModifyTime,jdbcType=BIGINT},
+      cn_note_body = #{cnNoteBody,jdbcType=LONGVARCHAR}
+    where cn_note_id = #{cnNoteId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyl.cloudnote.entity.CnNote">
+    update cn_note
+    set cn_notebook_id = #{cnNotebookId,jdbcType=VARCHAR},
+      cn_user_id = #{cnUserId,jdbcType=VARCHAR},
+      cn_note_status_id = #{cnNoteStatusId,jdbcType=VARCHAR},
+      cn_note_type_id = #{cnNoteTypeId,jdbcType=VARCHAR},
+      cn_note_title = #{cnNoteTitle,jdbcType=VARCHAR},
+      cn_note_create_time = #{cnNoteCreateTime,jdbcType=BIGINT},
+      cn_note_last_modify_time = #{cnNoteLastModifyTime,jdbcType=BIGINT}
+    where cn_note_id = #{cnNoteId,jdbcType=VARCHAR}
+  </update>
+</mapper>

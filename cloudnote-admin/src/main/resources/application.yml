@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: cloudnote-admin
+  profiles:
+    active: dev #默认为开发环境
+  servlet:
+    multipart:
+      enabled: true #开启文件上传
+      max-file-size: 10MB #限制文件上传大小为10M
+  # 配置springtask 定时任务相关的配置
+  task:
+    scheduling:
+      pool:
+        size: 10
+      thread-name-prefix: del_extra_files
+    execution:
+      shutdown:
+        #        线程关闭时是否等所有任务结束
+        await-termination: false
+        #        线程最大的等待时间，防止线程陷入循环关不掉
+        await-termination-period: 10s
+
+mybatis:
+  mapper-locations:
+    - classpath:dao/*.xml
+    - classpath*:mysql-mapper/*.xml
+
+

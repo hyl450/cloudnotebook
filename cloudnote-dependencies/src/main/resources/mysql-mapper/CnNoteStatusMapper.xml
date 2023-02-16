@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyl.cloudnote.mapper.CnNoteStatusMapper">
+  <resultMap id="BaseResultMap" type="com.hyl.cloudnote.entity.CnNoteStatus">
+    <id column="cn_note_status_id" jdbcType="VARCHAR" property="cnNoteStatusId" />
+    <result column="cn_note_status_code" jdbcType="VARCHAR" property="cnNoteStatusCode" />
+    <result column="cn_note_status_name" jdbcType="VARCHAR" property="cnNoteStatusName" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    cn_note_status_id, cn_note_status_code, cn_note_status_name
+  </sql>
+  <select id="selectByExample" parameterType="com.hyl.cloudnote.entity.CnNoteStatusExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from cn_note_status
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cn_note_status
+    where cn_note_status_id = #{cnNoteStatusId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from cn_note_status
+    where cn_note_status_id = #{cnNoteStatusId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hyl.cloudnote.entity.CnNoteStatusExample">
+    delete from cn_note_status
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hyl.cloudnote.entity.CnNoteStatus">
+    insert into cn_note_status (cn_note_status_id, cn_note_status_code, 
+      cn_note_status_name)
+    values (#{cnNoteStatusId,jdbcType=VARCHAR}, #{cnNoteStatusCode,jdbcType=VARCHAR}, 
+      #{cnNoteStatusName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hyl.cloudnote.entity.CnNoteStatus">
+    insert into cn_note_status
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cnNoteStatusId != null">
+        cn_note_status_id,
+      </if>
+      <if test="cnNoteStatusCode != null">
+        cn_note_status_code,
+      </if>
+      <if test="cnNoteStatusName != null">
+        cn_note_status_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cnNoteStatusId != null">
+        #{cnNoteStatusId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNoteStatusCode != null">
+        #{cnNoteStatusCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNoteStatusName != null">
+        #{cnNoteStatusName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hyl.cloudnote.entity.CnNoteStatusExample" resultType="java.lang.Long">
+    select count(*) from cn_note_status
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update cn_note_status
+    <set>
+      <if test="record.cnNoteStatusId != null">
+        cn_note_status_id = #{record.cnNoteStatusId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cnNoteStatusCode != null">
+        cn_note_status_code = #{record.cnNoteStatusCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cnNoteStatusName != null">
+        cn_note_status_name = #{record.cnNoteStatusName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update cn_note_status
+    set cn_note_status_id = #{record.cnNoteStatusId,jdbcType=VARCHAR},
+      cn_note_status_code = #{record.cnNoteStatusCode,jdbcType=VARCHAR},
+      cn_note_status_name = #{record.cnNoteStatusName,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyl.cloudnote.entity.CnNoteStatus">
+    update cn_note_status
+    <set>
+      <if test="cnNoteStatusCode != null">
+        cn_note_status_code = #{cnNoteStatusCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNoteStatusName != null">
+        cn_note_status_name = #{cnNoteStatusName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cn_note_status_id = #{cnNoteStatusId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyl.cloudnote.entity.CnNoteStatus">
+    update cn_note_status
+    set cn_note_status_code = #{cnNoteStatusCode,jdbcType=VARCHAR},
+      cn_note_status_name = #{cnNoteStatusName,jdbcType=VARCHAR}
+    where cn_note_status_id = #{cnNoteStatusId,jdbcType=VARCHAR}
+  </update>
+</mapper>

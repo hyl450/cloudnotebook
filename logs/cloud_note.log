@@ -1,0 +1,23 @@
+2023-02-16 19:50:31,920:INFO main (StartupInfoLogger.java:50) - Starting CloudnoteApplication on HUANGYL-PC with PID 5996 (D:\workspace-person\cloudnotebook\cloudnote-admin\target\classes started by HUANGYL in D:\workspace-person\cloudnotebook)
+2023-02-16 19:50:31,929:DEBUG main (StartupInfoLogger.java:53) - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+2023-02-16 19:50:31,930:INFO main (SpringApplication.java:650) - The following profiles are active: dev
+2023-02-16 19:50:35,532:INFO main (StartupInfoLogger.java:59) - Started CloudnoteApplication in 4.111 seconds (JVM running for 6.806)
+2023-02-16 19:51:27,480:INFO main (StartupInfoLogger.java:50) - Starting CloudnoteApplication on HUANGYL-PC with PID 3408 (D:\workspace-person\cloudnotebook\cloudnote-admin\target\classes started by HUANGYL in D:\workspace-person\cloudnotebook)
+2023-02-16 19:51:27,500:DEBUG main (StartupInfoLogger.java:53) - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+2023-02-16 19:51:27,500:INFO main (SpringApplication.java:650) - The following profiles are active: dev
+2023-02-16 19:51:33,495:INFO main (StartupInfoLogger.java:59) - Started CloudnoteApplication in 6.989 seconds (JVM running for 10.021)
+2023-02-16 19:52:29,512:INFO org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1 (DelSurplusImageFiles.java:42) - DelSurplusImageFiles_queueConsumer_del_surplus_image_files:d1a76f6a-073c-4655-a2cc-7d223521d374
+2023-02-16 19:52:29,955:INFO org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1 (DelSurplusImageFiles.java:46) - DelSurplusImageFiles_queueConsumer_filePath:D:\workspace-person\cloudnotebook/static/image/upload/ueditor/d1a76f6a-073c-4655-a2cc-7d223521d374
+2023-02-16 19:58:44,031:DEBUG http-nio-8088-exec-5 (BaseJdbcLogger.java:143) - ==>  Preparing: select cn_user_id, cn_user_name, cn_user_password, cn_user_token, cn_user_nick , cn_user_desc from cn_user where cn_user_name = ? 
+2023-02-16 19:58:44,055:DEBUG http-nio-8088-exec-5 (BaseJdbcLogger.java:143) - ==> Parameters: hyl129(String)
+2023-02-16 19:58:44,098:DEBUG http-nio-8088-exec-5 (BaseJdbcLogger.java:143) - <==      Total: 1
+2023-02-16 20:06:39,321:INFO main (StartupInfoLogger.java:50) - Starting CloudnoteApplication on HUANGYL-PC with PID 15736 (D:\workspace-person\cloudnotebook\cloudnote-admin\target\classes started by HUANGYL in D:\workspace-person\cloudnotebook)
+2023-02-16 20:06:39,332:DEBUG main (StartupInfoLogger.java:53) - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+2023-02-16 20:06:39,333:INFO main (SpringApplication.java:650) - The following profiles are active: dev
+2023-02-16 20:06:44,406:INFO main (StartupInfoLogger.java:59) - Started CloudnoteApplication in 5.603 seconds (JVM running for 8.163)
+2023-02-16 20:06:52,474:INFO http-nio-8088-exec-2 (LogAop.java:64) - 请求URI:/cloudnote/user/login.do,方法:GET,参数:name=hyl129&password=129520
+2023-02-16 20:06:53,028:DEBUG http-nio-8088-exec-2 (BaseJdbcLogger.java:143) - ==>  Preparing: select cn_user_id, cn_user_name, cn_user_password, cn_user_token, cn_user_nick , cn_user_desc from cn_user where cn_user_name = ? 
+2023-02-16 20:06:53,106:DEBUG http-nio-8088-exec-2 (BaseJdbcLogger.java:143) - ==> Parameters: hyl129(String)
+2023-02-16 20:06:53,146:DEBUG http-nio-8088-exec-2 (BaseJdbcLogger.java:143) - <==      Total: 1
+2023-02-16 20:06:53,326:INFO http-nio-8088-exec-2 (LogAop.java:68) - 请求结束，返回参数:{"data":"d1a76f6a-073c-4655-a2cc-7d223521d374","msg":"登录成功","status":0}
+2023-02-16 20:06:53,326:INFO http-nio-8088-exec-2 (LogAop.java:71) - 执行时长：852mm

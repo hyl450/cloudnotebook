@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyl.cloudnote.mapper.CnNoteActivityMapper">
+  <resultMap id="BaseResultMap" type="com.hyl.cloudnote.entity.CnNoteActivity">
+    <id column="cn_note_activity_id" jdbcType="VARCHAR" property="cnNoteActivityId" />
+    <result column="cn_activity_id" jdbcType="VARCHAR" property="cnActivityId" />
+    <result column="cn_note_id" jdbcType="VARCHAR" property="cnNoteId" />
+    <result column="cn_note_activity_up" jdbcType="INTEGER" property="cnNoteActivityUp" />
+    <result column="cn_note_activity_down" jdbcType="INTEGER" property="cnNoteActivityDown" />
+    <result column="cn_note_activity_title" jdbcType="VARCHAR" property="cnNoteActivityTitle" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.hyl.cloudnote.entity.CnNoteActivity">
+    <result column="cn_note_activity_body" jdbcType="LONGVARCHAR" property="cnNoteActivityBody" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    cn_note_activity_id, cn_activity_id, cn_note_id, cn_note_activity_up, cn_note_activity_down, 
+    cn_note_activity_title
+  </sql>
+  <sql id="Blob_Column_List">
+    cn_note_activity_body
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.hyl.cloudnote.entity.CnNoteActivityExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from cn_note_activity
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.hyl.cloudnote.entity.CnNoteActivityExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from cn_note_activity
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from cn_note_activity
+    where cn_note_activity_id = #{cnNoteActivityId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from cn_note_activity
+    where cn_note_activity_id = #{cnNoteActivityId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hyl.cloudnote.entity.CnNoteActivityExample">
+    delete from cn_note_activity
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hyl.cloudnote.entity.CnNoteActivity">
+    insert into cn_note_activity (cn_note_activity_id, cn_activity_id, cn_note_id, 
+      cn_note_activity_up, cn_note_activity_down, cn_note_activity_title, 
+      cn_note_activity_body)
+    values (#{cnNoteActivityId,jdbcType=VARCHAR}, #{cnActivityId,jdbcType=VARCHAR}, #{cnNoteId,jdbcType=VARCHAR}, 
+      #{cnNoteActivityUp,jdbcType=INTEGER}, #{cnNoteActivityDown,jdbcType=INTEGER}, #{cnNoteActivityTitle,jdbcType=VARCHAR}, 
+      #{cnNoteActivityBody,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hyl.cloudnote.entity.CnNoteActivity">
+    insert into cn_note_activity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cnNoteActivityId != null">
+        cn_note_activity_id,
+      </if>
+      <if test="cnActivityId != null">
+        cn_activity_id,
+      </if>
+      <if test="cnNoteId != null">
+        cn_note_id,
+      </if>
+      <if test="cnNoteActivityUp != null">
+        cn_note_activity_up,
+      </if>
+      <if test="cnNoteActivityDown != null">
+        cn_note_activity_down,
+      </if>
+      <if test="cnNoteActivityTitle != null">
+        cn_note_activity_title,
+      </if>
+      <if test="cnNoteActivityBody != null">
+        cn_note_activity_body,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cnNoteActivityId != null">
+        #{cnNoteActivityId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnActivityId != null">
+        #{cnActivityId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNoteId != null">
+        #{cnNoteId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNoteActivityUp != null">
+        #{cnNoteActivityUp,jdbcType=INTEGER},
+      </if>
+      <if test="cnNoteActivityDown != null">
+        #{cnNoteActivityDown,jdbcType=INTEGER},
+      </if>
+      <if test="cnNoteActivityTitle != null">
+        #{cnNoteActivityTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNoteActivityBody != null">
+        #{cnNoteActivityBody,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hyl.cloudnote.entity.CnNoteActivityExample" resultType="java.lang.Long">
+    select count(*) from cn_note_activity
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update cn_note_activity
+    <set>
+      <if test="record.cnNoteActivityId != null">
+        cn_note_activity_id = #{record.cnNoteActivityId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cnActivityId != null">
+        cn_activity_id = #{record.cnActivityId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cnNoteId != null">
+        cn_note_id = #{record.cnNoteId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cnNoteActivityUp != null">
+        cn_note_activity_up = #{record.cnNoteActivityUp,jdbcType=INTEGER},
+      </if>
+      <if test="record.cnNoteActivityDown != null">
+        cn_note_activity_down = #{record.cnNoteActivityDown,jdbcType=INTEGER},
+      </if>
+      <if test="record.cnNoteActivityTitle != null">
+        cn_note_activity_title = #{record.cnNoteActivityTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cnNoteActivityBody != null">
+        cn_note_activity_body = #{record.cnNoteActivityBody,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update cn_note_activity
+    set cn_note_activity_id = #{record.cnNoteActivityId,jdbcType=VARCHAR},
+      cn_activity_id = #{record.cnActivityId,jdbcType=VARCHAR},
+      cn_note_id = #{record.cnNoteId,jdbcType=VARCHAR},
+      cn_note_activity_up = #{record.cnNoteActivityUp,jdbcType=INTEGER},
+      cn_note_activity_down = #{record.cnNoteActivityDown,jdbcType=INTEGER},
+      cn_note_activity_title = #{record.cnNoteActivityTitle,jdbcType=VARCHAR},
+      cn_note_activity_body = #{record.cnNoteActivityBody,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update cn_note_activity
+    set cn_note_activity_id = #{record.cnNoteActivityId,jdbcType=VARCHAR},
+      cn_activity_id = #{record.cnActivityId,jdbcType=VARCHAR},
+      cn_note_id = #{record.cnNoteId,jdbcType=VARCHAR},
+      cn_note_activity_up = #{record.cnNoteActivityUp,jdbcType=INTEGER},
+      cn_note_activity_down = #{record.cnNoteActivityDown,jdbcType=INTEGER},
+      cn_note_activity_title = #{record.cnNoteActivityTitle,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyl.cloudnote.entity.CnNoteActivity">
+    update cn_note_activity
+    <set>
+      <if test="cnActivityId != null">
+        cn_activity_id = #{cnActivityId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNoteId != null">
+        cn_note_id = #{cnNoteId,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNoteActivityUp != null">
+        cn_note_activity_up = #{cnNoteActivityUp,jdbcType=INTEGER},
+      </if>
+      <if test="cnNoteActivityDown != null">
+        cn_note_activity_down = #{cnNoteActivityDown,jdbcType=INTEGER},
+      </if>
+      <if test="cnNoteActivityTitle != null">
+        cn_note_activity_title = #{cnNoteActivityTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="cnNoteActivityBody != null">
+        cn_note_activity_body = #{cnNoteActivityBody,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where cn_note_activity_id = #{cnNoteActivityId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.hyl.cloudnote.entity.CnNoteActivity">
+    update cn_note_activity
+    set cn_activity_id = #{cnActivityId,jdbcType=VARCHAR},
+      cn_note_id = #{cnNoteId,jdbcType=VARCHAR},
+      cn_note_activity_up = #{cnNoteActivityUp,jdbcType=INTEGER},
+      cn_note_activity_down = #{cnNoteActivityDown,jdbcType=INTEGER},
+      cn_note_activity_title = #{cnNoteActivityTitle,jdbcType=VARCHAR},
+      cn_note_activity_body = #{cnNoteActivityBody,jdbcType=LONGVARCHAR}
+    where cn_note_activity_id = #{cnNoteActivityId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyl.cloudnote.entity.CnNoteActivity">
+    update cn_note_activity
+    set cn_activity_id = #{cnActivityId,jdbcType=VARCHAR},
+      cn_note_id = #{cnNoteId,jdbcType=VARCHAR},
+      cn_note_activity_up = #{cnNoteActivityUp,jdbcType=INTEGER},
+      cn_note_activity_down = #{cnNoteActivityDown,jdbcType=INTEGER},
+      cn_note_activity_title = #{cnNoteActivityTitle,jdbcType=VARCHAR}
+    where cn_note_activity_id = #{cnNoteActivityId,jdbcType=VARCHAR}
+  </update>
+</mapper>
