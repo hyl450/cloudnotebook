@@ -8,7 +8,7 @@ Appenders:
     - name: ROLLING_FILE
       ignoreExceptions: false
       fileName: ./logs/cloud_note.log
-      filePattern: "./logs/$${date:yyyy-MM}/hhmt-cpa-%d{yyyy-MM-dd}-%i.log"
+      filePattern: "./logs/$${date:yyyy-MM}/cloud_note-%d{yyyy-MM-dd}-%i.log"
       PatternLayout:
         pattern: "%d{yyyy-MM-dd HH:mm:ss,SSS}:%4p %t (%F:%L) - %m%n"
       Policies:

@@ -2,6 +2,7 @@ package com.hyl.cloudnote.config;
 
 import com.alibaba.fastjson.JSONObject;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
@@ -33,6 +34,7 @@ public class LogAop {
 	public void execute(){
 	}
 
+	// 环绕通知 在方法之前和之后处理事情
 	@Around("execute()")
 	public Object doAround(ProceedingJoinPoint pjp) throws Throwable {
 		RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
@@ -70,6 +72,13 @@ public class LogAop {
 		long time = endTime - beginTime;
 		logger.info("执行时长：{}mm",time);
 		return result;
+	}
+
+
+	// 异常通知
+	@AfterThrowing("execution(* com.hyl.cloudnote.controller..*(..))")
+	public void afterThrowing() {
+		logger.error("异常通知");
 	}
 
 	public static Map<String,Object> getKeyAndValue(Object object){
