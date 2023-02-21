@@ -5,9 +5,24 @@ import org.springframework.util.ResourceUtils;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
+
+/**
+ * @description : 拦截器配置
+ * @param : 
+ * @return : 
+ * @author : huangyl
+ * @time : 2023/2/18
+ */
 @Configuration
 public class FileHandleConfig  extends WebMvcConfigurationSupport {
 
+	/**
+	 * @description : 访问静态文件
+	 * @param : [registry]
+	 * @return : void
+	 * @author : huangyl
+	 * @time : 2023/2/18
+	 */
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
