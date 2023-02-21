@@ -5,6 +5,7 @@ import com.hyl.cloudnote.entity.CnNoteExample;
 import java.util.List;
 import java.util.Map;
 
+import com.hyl.cloudnote.entity.ReqParam;
 import org.apache.ibatis.annotations.Param;
 
 public interface CnNoteMapper {
@@ -39,4 +40,5 @@ public interface CnNoteMapper {
     int updateByPrimaryKeyWithBLOBs(CnNote record);
 
     int updateByPrimaryKey(CnNote record);
+    int updateNoteIp(ReqParam reqParam);
 }

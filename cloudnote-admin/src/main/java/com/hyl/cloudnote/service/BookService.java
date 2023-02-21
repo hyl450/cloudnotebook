@@ -1,6 +1,7 @@
 package com.hyl.cloudnote.service;
 
 import com.hyl.cloudnote.dto.NoteResult;
+import com.hyl.cloudnote.entity.ReqParam;
 
 /**
  * @author : huangyl

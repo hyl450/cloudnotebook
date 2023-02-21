@@ -3,6 +3,7 @@ package com.hyl.cloudnote.controller.notebook;
 import com.hyl.cloudnote.dto.NoteResult;
 import com.hyl.cloudnote.entity.CnNote;
 import com.hyl.cloudnote.entity.CnNotebook;
+import com.hyl.cloudnote.entity.ReqParam;
 import com.hyl.cloudnote.service.BookService;
 import com.hyl.cloudnote.service.NotesService;
 import org.springframework.stereotype.Controller;
@@ -88,6 +89,13 @@ public class NoteBooksController {
 	@ResponseBody
 	public NoteResult delbacknote(@RequestBody CnNote cnNote){
 		NoteResult result = notesService.deleteBackNote(cnNote.getCnNoteId());
+		return result;
+	}
+
+	@RequestMapping("/updateNoteIp.do")
+	@ResponseBody
+	public NoteResult updateNoteIp(@RequestBody ReqParam reqParam){
+		NoteResult result = notesService.updateNoteIp(reqParam);
 		return result;
 	}
 }

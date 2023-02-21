@@ -5,6 +5,7 @@ import com.hyl.cloudnote.dto.NoteResult;
 import com.hyl.cloudnote.entity.CnNoteExample;
 import com.hyl.cloudnote.entity.CnNotebook;
 import com.hyl.cloudnote.entity.CnNotebookExample;
+import com.hyl.cloudnote.entity.ReqParam;
 import com.hyl.cloudnote.mapper.CnNoteMapper;
 import com.hyl.cloudnote.mapper.CnNotebookMapper;
 import com.hyl.cloudnote.service.BookService;

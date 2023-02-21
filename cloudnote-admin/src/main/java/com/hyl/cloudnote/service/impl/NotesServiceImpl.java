@@ -6,17 +6,16 @@ package com.hyl.cloudnote.service.impl;
  * @date : 2023/1/29 11:15
  * @description :
  */
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
 import com.hyl.cloudnote.common.util.NoteUtil;
 import com.hyl.cloudnote.common.util.RedisService;
 import com.hyl.cloudnote.common.util.StringUtils;
-import com.hyl.cloudnote.entity.CnNote;
-import com.hyl.cloudnote.entity.CnNoteExample;
-import com.hyl.cloudnote.entity.CnShare;
-import com.hyl.cloudnote.entity.CnShareExample;
+import com.hyl.cloudnote.entity.*;
 import com.hyl.cloudnote.mapper.CnNoteMapper;
 import com.hyl.cloudnote.mapper.CnShareMapper;
 import com.hyl.cloudnote.service.NotesService;
@@ -224,6 +223,29 @@ public class NotesServiceImpl implements NotesService {
 //			result.setStatus(1);
 //			result.setMsg("还原笔记失败");
 //		}
+		return result;
+	}
+
+	@Override
+	public NoteResult updateNoteIp(ReqParam reqParam) {
+		Map<String, Object> inMap = new HashMap<>();
+		inMap.put("body", reqParam.getOldIpAddress());
+		List<CnNote> notes = noteDao.selectCnNoteByLikeBody(inMap);
+		int rows = noteDao.updateNoteIp(reqParam);
+		NoteResult result = new NoteResult();
+		if(rows != 0){
+			if(notes != null && notes.size() > 0) {
+				for(CnNote cnNote : notes) {
+					String cn_note_body = StringUtils.castToString(redisService.get("cn_note_body:"+cnNote.getCnNoteId()));
+					redisService.set("cn_note_body:"+cnNote.getCnNoteId(), cn_note_body.replaceAll(reqParam.getOldIpAddress(), reqParam.getNewIpAddress()));
+				}
+			}
+			result.setStatus(0);
+			result.setMsg("笔记图片ip地址修改成功");
+		}else{
+			result.setStatus(1);
+			result.setMsg("笔记图片ip地址修改失败");
+		}
 		return result;
 	}
 }

@@ -131,8 +131,10 @@
     ,
     <include refid="Blob_Column_List" />
     from cn_note
-    where cn_user_id = #{cn_user_id,jdbcType=VARCHAR}
-    and cn_note_body like CONCAT('%','${body}','%')
+    where cn_note_body like CONCAT('%','${body}','%')
+    <if test="cn_user_id != null">
+      and cn_user_id = #{cn_user_id,jdbcType=VARCHAR}
+    </if>
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from cn_note
@@ -337,5 +339,11 @@
       cn_note_create_time = #{cnNoteCreateTime,jdbcType=BIGINT},
       cn_note_last_modify_time = #{cnNoteLastModifyTime,jdbcType=BIGINT}
     where cn_note_id = #{cnNoteId,jdbcType=VARCHAR}
+  </update>
+
+  <update id="updateNoteIp" parameterType="com.hyl.cloudnote.entity.ReqParam">
+    update cn_note a
+    set a.cn_note_body=replace(a.cn_note_body, #{oldIpAddress,jdbcType=VARCHAR}, #{newIpAddress,jdbcType=VARCHAR})
+    where a.cn_note_body like concat('%',#{oldIpAddress,jdbcType=VARCHAR},'%')
   </update>
 </mapper>

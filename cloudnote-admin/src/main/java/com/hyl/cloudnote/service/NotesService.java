@@ -1,6 +1,7 @@
 package com.hyl.cloudnote.service;
 
 import com.hyl.cloudnote.dto.NoteResult;
+import com.hyl.cloudnote.entity.ReqParam;
 
 /**
  * @author : huangyl
@@ -18,4 +19,6 @@ public interface NotesService {
 	public NoteResult loadBackNotes(String userId);
 	public NoteResult deleteBackNote(String noteId);
 	public NoteResult replayNote(String newBookId, String noteId);
+
+	NoteResult updateNoteIp(ReqParam reqParam);
 }
