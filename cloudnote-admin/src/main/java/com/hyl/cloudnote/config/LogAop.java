@@ -85,7 +85,7 @@ public class LogAop {
 		Map<String,Object> map = new HashMap<String, Object>();
 		Class uCla = (Class)object.getClass();
 
-		if(!(uCla.getPackage().getName().startsWith("com.ahunicom")
+		if(!(uCla.getPackage().getName().startsWith("com.hyl")
 				|| uCla.getPackage().getName().startsWith("java.") )){
 			return map;
 		}
