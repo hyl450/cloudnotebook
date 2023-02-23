@@ -50,3 +50,7 @@ logstash:
   host: localhost
 server:
   port: 8088
+
+ueditor:
+  image:
+    filePath: /root/hyl/static/image/upload/ueditor/
