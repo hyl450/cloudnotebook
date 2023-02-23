@@ -6,6 +6,7 @@ import com.hyl.cloudnote.mapper.CnNoteMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +37,8 @@ public class DelSurplusImageFiles {
 
 	@Resource
 	private CnNoteMapper cnNoteMapper;
+	@Value("${ueditor.image.filePath}")
+	private String filePath;
 
 	@RabbitListener(queues = {"del_surplus_image_files"})
 	public void queueConsumer(@Payload String cnUserId){
@@ -43,7 +46,8 @@ public class DelSurplusImageFiles {
 		log.info("消费者正在消费消息...begin...:{}", cnUserId);
 		log.info("DelSurplusImageFiles_queueConsumer_del_surplus_image_files:{}", cnUserId);
 		//删除多余的文件
-		String filePath = System.getProperty("user.dir") + "/static/image/upload/ueditor/"+cnUserId;
+//		String filePath = System.getProperty("user.dir") + "/static/image/upload/ueditor/"+cnUserId;
+		filePath = filePath + cnUserId;
 //		String filePath = System.getProperty("user.dir") + "\\cloudnote-admin\\target\\classes\\static\\image\\upload\\ueditor\\"+cnUserId;
 		log.info("DelSurplusImageFiles_queueConsumer_filePath:{}", filePath);
 
