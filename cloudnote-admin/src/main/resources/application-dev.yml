@@ -33,8 +33,8 @@ spring:
 #    static-locations: file:/static
   #配置rabbitMq 服务器
   rabbitmq:
-    host: 127.0.0.1
-#    host: 192.168.150.128
+#    host: 127.0.0.1
+    host: 192.168.150.128
     port: 5672
     username: guest
     password: guest
@@ -43,7 +43,7 @@ spring:
 logging:
   level:
     root: info
-    com.hyl.cloudnote: debug
+    com.hyl.cloudnote: info
 #    org.jeecg.modules.hdx.mapper: debug
 
 logstash:
@@ -54,3 +54,4 @@ server:
 ueditor:
   image:
     filePath: /root/hyl/static/image/upload/ueditor/
+#    filePath: D:\workspace-person\cloudnotebook\cloudnote-admin\target\classes\static\image\upload\ueditor\
