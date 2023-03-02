@@ -3,6 +3,7 @@ package com.hyl.cloudnote.controller.notebook;
 import com.hyl.cloudnote.dto.NoteResult;
 import com.hyl.cloudnote.entity.CnNote;
 import com.hyl.cloudnote.entity.CnNotebook;
+import com.hyl.cloudnote.entity.CnUser;
 import com.hyl.cloudnote.entity.ReqParam;
 import com.hyl.cloudnote.service.BookService;
 import com.hyl.cloudnote.service.NotesService;
@@ -92,10 +93,32 @@ public class NoteBooksController {
 		return result;
 	}
 
+	/**
+	 * @description : 更新笔记中图片ip信息，使其能够正常展示
+	 * @param : [reqParam]
+	 * @return : com.hyl.cloudnote.dto.NoteResult
+	 * @author : huangyl
+	 * @time : 2023/3/2
+	 */
 	@RequestMapping("/updateNoteIp.do")
 	@ResponseBody
 	public NoteResult updateNoteIp(@RequestBody ReqParam reqParam){
 		NoteResult result = notesService.updateNoteIp(reqParam);
 		return result;
 	}
+
+	/**
+	 * @description : 回收站
+	 * @param : [cnUser]
+	 * @return : com.hyl.cloudnote.dto.NoteResult
+	 * @author : huangyl
+	 * @time : 2023/3/2
+	 */
+	@RequestMapping("/loadbacknotes.do")
+	@ResponseBody
+	public NoteResult loadbacknotes(@RequestBody CnUser cnUser){
+		NoteResult result = notesService.loadBackNotes(cnUser.getCnUserId());
+		return result;
+	}
+
 }
