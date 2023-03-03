@@ -130,11 +130,45 @@ public class NoteBooksController {
 		return result;
 	}
 
-
+	/**
+	 * @description : 还原笔记
+	 * @param : [cnNote]
+	 * @return : com.hyl.cloudnote.dto.NoteResult
+	 * @author : huangyl
+	 * @time : 2023/3/3
+	 */
 	@RequestMapping("/replayNote.do")
 	@ResponseBody
 	public NoteResult replayNote(@RequestBody CnNote cnNote){
 		NoteResult result = notesService.replayNote(cnNote.getCnNoteNewbookId(), cnNote.getCnNoteId());
+		return result;
+	}
+
+	/**
+	 * @description : 收藏或取消收藏笔记
+	 * @param : [cnNote]
+	 * @return : com.hyl.cloudnote.dto.NoteResult
+	 * @author : huangyl
+	 * @time : 2023/3/3
+	 */
+	@RequestMapping("/upNoteTypeId.do")
+	@ResponseBody
+	public NoteResult upNoteTypeId(@RequestBody CnNote cnNote){
+		NoteResult result = notesService.upNoteTypeId(cnNote);
+		return result;
+	}
+
+	/**
+	 * @description : 查询收藏笔记
+	 * @param : [cnNote]
+	 * @return : com.hyl.cloudnote.dto.NoteResult
+	 * @author : huangyl
+	 * @time : 2023/3/3
+	 */
+	@RequestMapping("/loadLikeNotes.do")
+	@ResponseBody
+	public NoteResult loadLikeNotes(@RequestBody CnNote cnNote){
+		NoteResult result = notesService.loadLikeNotes(cnNote);
 		return result;
 	}
 

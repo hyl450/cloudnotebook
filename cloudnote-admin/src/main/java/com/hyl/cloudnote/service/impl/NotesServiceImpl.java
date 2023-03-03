@@ -50,7 +50,7 @@ public class NotesServiceImpl implements NotesService {
 			note.setCnNoteId(noteId);
 			note.setCnNoteTitle(cn_note_title);
 			String cn_note_body = StringUtils.castToString(redisService.get("cn_note_body:" + noteId));
-			if(cn_note_body != null && !"".equals(cn_note_body)) {
+			if (cn_note_body != null && !"".equals(cn_note_body)) {
 				note.setCnNoteBody(cn_note_body);
 			} else {
 				CnNote notenew = noteDao.selectByPrimaryKey(noteId);
@@ -235,18 +235,52 @@ public class NotesServiceImpl implements NotesService {
 		List<CnNote> notes = noteDao.selectCnNoteByLikeBody(inMap);
 		int rows = noteDao.updateNoteIp(reqParam);
 		NoteResult result = new NoteResult();
-		if(rows != 0){
-			if(notes != null && notes.size() > 0) {
-				for(CnNote cnNote : notes) {
-					String cn_note_body = StringUtils.castToString(redisService.get("cn_note_body:"+cnNote.getCnNoteId()));
-					redisService.set("cn_note_body:"+cnNote.getCnNoteId(), cn_note_body.replaceAll(reqParam.getOldIpAddress(), reqParam.getNewIpAddress()));
+		if (rows != 0) {
+			if (notes != null && notes.size() > 0) {
+				for (CnNote cnNote : notes) {
+					String cn_note_body = StringUtils.castToString(redisService.get("cn_note_body:" + cnNote.getCnNoteId()));
+					redisService.set("cn_note_body:" + cnNote.getCnNoteId(), cn_note_body.replaceAll(reqParam.getOldIpAddress(), reqParam.getNewIpAddress()));
 				}
 			}
 			result.setStatus(0);
 			result.setMsg("笔记图片ip地址修改成功");
-		}else{
+		} else {
 			result.setStatus(1);
 			result.setMsg("笔记图片ip地址修改失败");
+		}
+		return result;
+	}
+
+	@Override
+	public NoteResult upNoteTypeId(CnNote cnNote) {
+		NoteResult result = new NoteResult();
+		int rows = noteDao.updateByPrimaryKeySelective(cnNote);
+		if (rows != 0) {
+			result.setStatus(0);
+			result.setMsg("笔记类型修改成功");
+		} else {
+			result.setStatus(1);
+			result.setMsg("笔记类型修改失败");
+		}
+		return result;
+	}
+
+	@Override
+	public NoteResult loadLikeNotes(CnNote cnNote) {
+		NoteResult result = new NoteResult();
+		CnNoteExample example = new CnNoteExample();
+		CnNoteExample.Criteria criteria = example.createCriteria();
+		criteria.andCnUserIdEqualTo(cnNote.getCnUserId());
+		//1-正常 2-删除
+		criteria.andCnNoteTypeIdEqualTo("129");
+		List<CnNote> notes = noteDao.selectByExampleWithBLOBs(example);
+		if(notes != null && notes.size() > 0) {
+			result.setStatus(0);
+			result.setMsg("打开收藏笔记成功");
+			result.setData(notes);
+		} else {
+			result.setStatus(1);
+			result.setMsg("打开收藏笔记失败");
 		}
 		return result;
 	}

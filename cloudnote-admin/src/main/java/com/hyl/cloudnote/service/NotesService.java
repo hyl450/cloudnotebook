@@ -1,6 +1,7 @@
 package com.hyl.cloudnote.service;
 
 import com.hyl.cloudnote.dto.NoteResult;
+import com.hyl.cloudnote.entity.CnNote;
 import com.hyl.cloudnote.entity.ReqParam;
 
 /**
@@ -21,4 +22,8 @@ public interface NotesService {
 	public NoteResult replayNote(String newBookId, String noteId);
 
 	NoteResult updateNoteIp(ReqParam reqParam);
+
+	NoteResult upNoteTypeId(CnNote cnNote);
+
+	NoteResult loadLikeNotes(CnNote cnNote);
 }
