@@ -170,7 +170,9 @@ public class NotesServiceImpl implements NotesService {
 		CnNoteExample example = new CnNoteExample();
 		CnNoteExample.Criteria criteria = example.createCriteria();
 		criteria.andCnUserIdEqualTo(userId);
-		List<CnNote> notes = noteDao.selectByExample(example);
+		//1-正常 2-删除
+		criteria.andCnNoteStatusIdEqualTo("2");
+		List<CnNote> notes = noteDao.selectByExampleWithBLOBs(example);
 		result.setStatus(0);
 		result.setMsg("打开回收站笔记成功");
 		result.setData(notes);
@@ -207,7 +209,7 @@ public class NotesServiceImpl implements NotesService {
 		CnNote record = new CnNote();
 		record.setCnNoteId(noteId);
 		record.setCnNotebookId(newBookId);
-		record.setCnNoteStatusId("2");
+		record.setCnNoteStatusId("1");
 		noteDao.updateByPrimaryKeySelective(record);
 
 		result.setStatus(0);

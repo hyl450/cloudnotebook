@@ -124,6 +124,7 @@
     <include refid="Blob_Column_List" />
     from cn_note
     where cn_notebook_id = #{cnNoteBookId,jdbcType=VARCHAR}
+    <![CDATA[ and cn_note_status_id <> '2' ]]>
   </select>
   <select id="selectCnNoteByLikeBody" parameterType="map" resultMap="BaseResultMap">
     select

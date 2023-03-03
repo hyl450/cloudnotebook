@@ -86,10 +86,19 @@ public class NoteBooksController {
 		return result;
 	}
 
+	//从回收站彻底删除笔记
 	@RequestMapping("/delbacknote.do")
 	@ResponseBody
 	public NoteResult delbacknote(@RequestBody CnNote cnNote){
 		NoteResult result = notesService.deleteBackNote(cnNote.getCnNoteId());
+		return result;
+	}
+
+	//将笔记移入回收站
+	@RequestMapping("/recyclenote.do")
+	@ResponseBody
+	public NoteResult recyclenote(@RequestBody CnNote cnNote){
+		NoteResult result = notesService.recycleNote(cnNote.getCnNoteId());
 		return result;
 	}
 
@@ -118,6 +127,14 @@ public class NoteBooksController {
 	@ResponseBody
 	public NoteResult loadbacknotes(@RequestBody CnUser cnUser){
 		NoteResult result = notesService.loadBackNotes(cnUser.getCnUserId());
+		return result;
+	}
+
+
+	@RequestMapping("/replayNote.do")
+	@ResponseBody
+	public NoteResult replayNote(@RequestBody CnNote cnNote){
+		NoteResult result = notesService.replayNote(cnNote.getCnNoteNewbookId(), cnNote.getCnNoteId());
 		return result;
 	}
 

@@ -10,6 +10,9 @@ public class CnNote implements Serializable {
     @ApiModelProperty(value = "笔记本ID")
     private String cnNotebookId;
 
+    @ApiModelProperty(value = "笔记本ID")
+    private String cnNoteNewbookId;
+
     @ApiModelProperty(value = "用户ID")
     private String cnUserId;
 
@@ -30,6 +33,14 @@ public class CnNote implements Serializable {
 
     @ApiModelProperty(value = "笔记内容")
     private String cnNoteBody;
+
+    public String getCnNoteNewbookId() {
+        return cnNoteNewbookId;
+    }
+
+    public void setCnNoteNewbookId(String cnNoteNewbookId) {
+        this.cnNoteNewbookId = cnNoteNewbookId;
+    }
 
     private static final long serialVersionUID = 1L;
 
