@@ -172,4 +172,18 @@ public class NoteBooksController {
 		return result;
 	}
 
+	/**
+	 * @description : 搜索笔记
+	 * @param : [cnNote]
+	 * @return : com.hyl.cloudnote.dto.NoteResult
+	 * @author : huangyl
+	 * @time : 2023/3/4
+	 */
+	@RequestMapping("/toSearchNotes.do")
+	@ResponseBody
+	public NoteResult toSearchNotes(@RequestBody CnNote cnNote){
+		NoteResult result = notesService.toSearchNotes(cnNote);
+		return result;
+	}
+
 }

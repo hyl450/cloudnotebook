@@ -27,6 +27,8 @@ public interface CnNoteMapper {
 
     List<CnNote> selectCnNoteByLikeBody(Map<String, Object> inMap);
 
+    List<CnNote> selectCnNoteByLikeTitle(CnNote record);
+
     CnNote selectByPrimaryKey(String cnNoteId);
 
     int updateByExampleSelective(@Param("record") CnNote record, @Param("example") CnNoteExample example);

@@ -26,4 +26,6 @@ public interface NotesService {
 	NoteResult upNoteTypeId(CnNote cnNote);
 
 	NoteResult loadLikeNotes(CnNote cnNote);
+
+	NoteResult toSearchNotes(CnNote cnNote);
 }

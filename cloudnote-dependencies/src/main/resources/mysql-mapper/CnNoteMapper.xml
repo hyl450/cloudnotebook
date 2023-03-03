@@ -137,6 +137,19 @@
       and cn_user_id = #{cn_user_id,jdbcType=VARCHAR}
     </if>
   </select>
+
+  <select id="selectCnNoteByLikeTitle" parameterType="map" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from cn_note
+    where cn_note_title like CONCAT('%','${cnNoteTitle}','%')
+    <if test="cnUserId != null">
+      and cn_user_id = #{cnUserId,jdbcType=VARCHAR}
+    </if>
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from cn_note
     where cn_note_id = #{cnNoteId,jdbcType=VARCHAR}

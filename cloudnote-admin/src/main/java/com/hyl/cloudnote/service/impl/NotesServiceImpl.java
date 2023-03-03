@@ -284,4 +284,19 @@ public class NotesServiceImpl implements NotesService {
 		}
 		return result;
 	}
+
+	@Override
+	public NoteResult toSearchNotes(CnNote cnNote) {
+		NoteResult result = new NoteResult();
+		List<CnNote> notes = noteDao.selectCnNoteByLikeTitle(cnNote);
+		if(notes != null && notes.size() > 0) {
+			result.setStatus(0);
+			result.setMsg("搜索【"+cnNote.getCnNoteTitle()+"】笔记成功");
+			result.setData(notes);
+		} else {
+			result.setStatus(1);
+			result.setMsg("搜索【"+cnNote.getCnNoteTitle()+"】笔记失败");
+		}
+		return result;
+	}
 }
