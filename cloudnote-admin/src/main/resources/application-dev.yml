@@ -5,7 +5,7 @@ spring:
 #    url: jdbc:mysql://172.23.16.144:3306/cloud_note?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
 #    url: jdbc:mysql://192.168.2.204:3306/cloud_note?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
 #    url: jdbc:mysql://192.168.150.134:3306/cloud_note?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
-    url: jdbc:mysql://127.0.0.1:3306/cloud_note?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://192.168.150.128:3306/cloud_note?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: root
     password: 129520
     type: com.alibaba.druid.pool.DruidDataSource
