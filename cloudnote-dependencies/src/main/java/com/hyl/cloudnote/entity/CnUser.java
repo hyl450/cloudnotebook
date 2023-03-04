@@ -13,8 +13,8 @@ public class CnUser implements Serializable {
     @ApiModelProperty(value = "密码")
     private String cnUserPassword;
 
-//    @ApiModelProperty(value = "确认密码")
-//    private String confirmPassword;
+    @ApiModelProperty(value = "确认密码")
+    private String confirmPassword;
 
     @ApiModelProperty(value = "令牌")
     private String cnUserToken;
@@ -24,6 +24,14 @@ public class CnUser implements Serializable {
 
     @ApiModelProperty(value = "说明")
     private String cnUserDesc;
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
 
     private static final long serialVersionUID = 1L;
 

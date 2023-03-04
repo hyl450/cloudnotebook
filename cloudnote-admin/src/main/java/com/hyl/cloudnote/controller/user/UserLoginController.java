@@ -33,9 +33,9 @@ public class UserLoginController {
 
 	@RequestMapping("/updatePwd.do")
 	@ResponseBody//返回JSON字符串
-	public NoteResult updatePwd(String name, String password, String newpassword) throws Exception{
+	public NoteResult updatePwd(@RequestBody CnUser cnUser) throws Exception{
 		System.out.println("execute方法");
-		NoteResult result = userService.updatePwd(name, password,newpassword);
+		NoteResult result = userService.updatePwd(cnUser.getCnUserName(), cnUser.getCnUserPassword(), cnUser.getConfirmPassword());
 		System.out.println(result);
 		return result;
 	}

@@ -94,9 +94,9 @@ public class UserServiceImpl implements UserService {
 		return result;
 	}
 
-	public NoteResult updatePwd(String userId,String lastPwd, String newPwd) throws Exception {
+	public NoteResult updatePwd(String userName,String lastPwd, String newPwd) throws Exception {
 		NoteResult result = new NoteResult();
-		CnUser has_user = cnUserMapper.selectByPrimaryKey(userId);
+		CnUser has_user = cnUserMapper.selectByUserName(userName);
 		String md5OldPwd = NoteUtil.md5(lastPwd);
 
 		if(!has_user.getCnUserPassword().equals(md5OldPwd)){
@@ -106,7 +106,7 @@ public class UserServiceImpl implements UserService {
 		}
 		String md5Pwd = NoteUtil.md5(newPwd);
 		CnUser user = new CnUser();
-		user.setCnUserId(userId);
+		user.setCnUserId(has_user.getCnUserId());
 		user.setCnUserPassword(md5Pwd);
 		cnUserMapper.updateByPrimaryKeySelective(user);
 		result.setStatus(0);

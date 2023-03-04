@@ -291,11 +291,11 @@ public class NotesServiceImpl implements NotesService {
 		List<CnNote> notes = noteDao.selectCnNoteByLikeTitle(cnNote);
 		if(notes != null && notes.size() > 0) {
 			result.setStatus(0);
-			result.setMsg("搜索【"+cnNote.getCnNoteTitle()+"】笔记成功");
+			result.setMsg("搜索【"+(StringUtils.isNotEmptyOrNull(cnNote.getCnNoteTitle()) ? cnNote.getCnNoteTitle() : cnNote.getCnNoteBody())+"】笔记成功");
 			result.setData(notes);
 		} else {
 			result.setStatus(1);
-			result.setMsg("搜索【"+cnNote.getCnNoteTitle()+"】笔记失败");
+			result.setMsg("搜索【"+(StringUtils.isNotEmptyOrNull(cnNote.getCnNoteTitle()) ? cnNote.getCnNoteTitle() : cnNote.getCnNoteBody())+"】笔记失败");
 		}
 		return result;
 	}

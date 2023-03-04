@@ -144,9 +144,12 @@
     ,
     <include refid="Blob_Column_List" />
     from cn_note
-    where cn_note_title like CONCAT('%','${cnNoteTitle}','%')
-    <if test="cnUserId != null">
-      and cn_user_id = #{cnUserId,jdbcType=VARCHAR}
+    where cn_user_id = #{cnUserId,jdbcType=VARCHAR}
+    <if test="cnNoteBody != null">
+      and cn_note_body like CONCAT('%','${cnNoteBody}','%')
+    </if>
+    <if test="cnNoteTitle != null">
+      and cn_note_title like CONCAT('%','${cnNoteTitle}','%')
     </if>
   </select>
 
