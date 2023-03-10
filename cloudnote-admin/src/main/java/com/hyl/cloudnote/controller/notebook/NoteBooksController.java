@@ -1,10 +1,7 @@
 package com.hyl.cloudnote.controller.notebook;
 
 import com.hyl.cloudnote.dto.NoteResult;
-import com.hyl.cloudnote.entity.CnNote;
-import com.hyl.cloudnote.entity.CnNotebook;
-import com.hyl.cloudnote.entity.CnUser;
-import com.hyl.cloudnote.entity.ReqParam;
+import com.hyl.cloudnote.entity.*;
 import com.hyl.cloudnote.service.BookService;
 import com.hyl.cloudnote.service.NotesService;
 import org.springframework.stereotype.Controller;
@@ -183,6 +180,62 @@ public class NoteBooksController {
 	@ResponseBody
 	public NoteResult toSearchNotes(@RequestBody CnNote cnNote){
 		NoteResult result = notesService.toSearchNotes(cnNote);
+		return result;
+	}
+
+	/**
+	 * @description : 移动笔记
+	 * @param : [cnNote]
+	 * @return : com.hyl.cloudnote.dto.NoteResult
+	 * @author : huangyl
+	 * @time : 2023/3/10
+	 */
+	@RequestMapping("/moveNote.do")
+	@ResponseBody
+	public NoteResult moveNote(@RequestBody CnNote cnNote){
+		NoteResult result = notesService.moveNote(cnNote.getCnNoteId(), cnNote.getCnNoteNewbookId());
+		return result;
+	}
+
+	/**
+	 * @description : 分享笔记
+	 * @param : [cnNote]
+	 * @return : com.hyl.cloudnote.dto.NoteResult
+	 * @author : huangyl
+	 * @time : 2023/3/10
+	 */
+	@RequestMapping("/shareNote.do")
+	@ResponseBody
+	public NoteResult shareNote(@RequestBody CnNote cnNote){
+		NoteResult result = notesService.shareNote(cnNote.getCnNoteId());
+		return result;
+	}
+
+	/**
+	 * @description : 加载分享笔记列表
+	 * @param : [cnNote]
+	 * @return : com.hyl.cloudnote.dto.NoteResult
+	 * @author : huangyl
+	 * @time : 2023/3/10
+	 */
+	@RequestMapping("/loadShareNotes.do")
+	@ResponseBody
+	public NoteResult loadShareNote(@RequestBody CnNote cnNote){
+		NoteResult result = notesService.loadShareNotes(cnNote.getCnUserId());
+		return result;
+	}
+
+	/**
+	 * @description : 取消分享笔记
+	 * @param : [cnNote]
+	 * @return : com.hyl.cloudnote.dto.NoteResult
+	 * @author : huangyl
+	 * @time : 2023/3/10
+	 */
+	@RequestMapping("/delShareNote.do")
+	@ResponseBody
+	public NoteResult delShareNote(@RequestBody CnShare cnShare){
+		NoteResult result = notesService.delShareNote(cnShare);
 		return result;
 	}
 

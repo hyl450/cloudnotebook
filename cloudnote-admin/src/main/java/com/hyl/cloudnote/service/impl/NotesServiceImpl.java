@@ -6,6 +6,7 @@ package com.hyl.cloudnote.service.impl;
  * @date : 2023/1/29 11:15
  * @description :
  */
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -296,6 +297,84 @@ public class NotesServiceImpl implements NotesService {
 		} else {
 			result.setStatus(1);
 			result.setMsg("搜索【"+(StringUtils.isNotEmptyOrNull(cnNote.getCnNoteTitle()) ? cnNote.getCnNoteTitle() : cnNote.getCnNoteBody())+"】笔记失败");
+		}
+		return result;
+	}
+
+	//分享笔记
+	public NoteResult shareNote(String noteId) {
+		NoteResult result = new NoteResult();
+		//检查是否重复分享
+		CnShare has_share = shareDao.selectByCnNoteId(noteId);
+		if(has_share != null){
+			result.setStatus(1);
+			result.setMsg("该笔记已被分享过");
+			return result;
+		}
+		//分享操作
+		CnNote note = noteDao.selectByPrimaryKey(noteId);
+		CnShare shareNote = new CnShare();
+		String shareId = NoteUtil.createId();
+		shareNote.setCnShareId(shareId);
+		shareNote.setCnNoteId(noteId);
+		shareNote.setCnShareTitle(note.getCnNoteTitle());
+		shareNote.setCnShareBody(note.getCnNoteBody());
+		shareNote.setCnUserId(note.getCnUserId());
+		shareDao.insert(shareNote);
+		result.setStatus(0);
+		result.setMsg("分享笔记成功");
+		return result;
+	}
+
+	public NoteResult loadShareNotes(String cnUserId) {
+		NoteResult result = new NoteResult();
+		List<CnShare> cnShares = shareDao.selectAllShareNotes();
+		if(cnShares != null && cnShares.size() > 0) {
+			for (CnShare cnShare: cnShares) {
+				//是否为本人分享的笔记
+				cnShare.setIsPersonShare(cnUserId.equals(cnShare.getCnUserId()) ? "Y" : "N");
+				String noteId = cnShare.getCnNoteId();
+				String shareId = cnShare.getCnShareId();
+				String cn_note_title = StringUtils.castToString(redisService.get("cn_share_title:" + shareId));
+				if (cn_note_title != null && !"".equals(cn_note_title)) {
+					cnShare.setCnNoteId(noteId);
+					cnShare.setCnShareTitle(cn_note_title);
+					String cn_note_body = StringUtils.castToString(redisService.get("cn_share_body:" + shareId));
+					if (cn_note_body != null && !"".equals(cn_note_body)) {
+						cnShare.setCnShareBody(cn_note_body);
+					} else {
+						CnNote notenew = noteDao.selectByPrimaryKey(noteId);
+						redisService.set("cn_share_title:" + shareId, notenew.getCnNoteTitle());
+						redisService.set("cn_share_body:" + shareId, notenew.getCnNoteBody());
+						cnShare.setCnShareBody(notenew.getCnNoteBody());
+					}
+				} else {
+					CnNote note = noteDao.selectByPrimaryKey(noteId);
+					cnShare.setCnShareTitle(note.getCnNoteTitle());
+					cnShare.setCnShareBody(note.getCnNoteBody());
+					redisService.set("cn_share_title:" + shareId, note.getCnNoteTitle());
+					redisService.set("cn_share_body:" + shareId, note.getCnNoteBody());
+				}
+			}
+		}
+		result.setStatus(0);
+		result.setMsg("打开分享的笔记成功");
+		result.setData(cnShares);
+		return result;
+	}
+
+	@Override
+	public NoteResult delShareNote(CnShare cnShare) {
+		NoteResult result = new NoteResult();
+		int rows = shareDao.deleteByPrimaryKey(cnShare.getCnShareId());
+		if(rows > 0) {
+			redisService.del("cn_share_title:" + cnShare.getCnShareId());
+			redisService.del("cn_share_body:" + cnShare.getCnShareId());
+			result.setStatus(0);
+			result.setMsg("笔记取消分享成功");
+		} else {
+			result.setStatus(1);
+			result.setMsg("笔记取消分享失败");
 		}
 		return result;
 	}

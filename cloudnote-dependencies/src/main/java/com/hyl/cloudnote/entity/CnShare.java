@@ -16,6 +16,28 @@ public class CnShare implements Serializable {
     @ApiModelProperty(value = "共享内容")
     private String cnShareBody;
 
+    @ApiModelProperty(value = "用户ID")
+    private String cnUserId;
+
+    @ApiModelProperty(value = "是否本人分享的笔记")
+    private String isPersonShare;
+
+    public String getIsPersonShare() {
+        return isPersonShare;
+    }
+
+    public void setIsPersonShare(String isPersonShare) {
+        this.isPersonShare = isPersonShare;
+    }
+
+    public String getCnUserId() {
+        return cnUserId;
+    }
+
+    public void setCnUserId(String cnUserId) {
+        this.cnUserId = cnUserId;
+    }
+
     private static final long serialVersionUID = 1L;
 
     public String getCnShareId() {

@@ -2,6 +2,7 @@ package com.hyl.cloudnote.service;
 
 import com.hyl.cloudnote.dto.NoteResult;
 import com.hyl.cloudnote.entity.CnNote;
+import com.hyl.cloudnote.entity.CnShare;
 import com.hyl.cloudnote.entity.ReqParam;
 
 /**
@@ -28,4 +29,10 @@ public interface NotesService {
 	NoteResult loadLikeNotes(CnNote cnNote);
 
 	NoteResult toSearchNotes(CnNote cnNote);
+
+	NoteResult shareNote(String noteId);
+
+	NoteResult loadShareNotes(String cnUserId);
+
+	NoteResult delShareNote(CnShare cnShare);
 }

@@ -20,7 +20,11 @@ public interface CnShareMapper {
 
     List<CnShare> selectByExample(CnShareExample example);
 
+    List<CnShare> selectAllShareNotes();
+
     CnShare selectByPrimaryKey(String cnShareId);
+
+    CnShare selectByCnNoteId(String cnNoteId);
 
     int updateByExampleSelective(@Param("record") CnShare record, @Param("example") CnShareExample example);
 
