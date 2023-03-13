@@ -145,7 +145,7 @@ public class NotesServiceImpl implements NotesService {
 		criteria.andCnNoteIdEqualTo(noteId);
 		List<CnShare> has_share = shareDao.selectByExample(cnShareExample);
 		if (has_share != null && has_share.size() > 0) {
-			shareDao.deleteByPrimaryKey(noteId);
+			shareDao.deleteByExample(cnShareExample);
 		}
 		return result;
 	}
