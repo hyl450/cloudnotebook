@@ -7,6 +7,7 @@
     <result column="cn_notebook_type_id" jdbcType="VARCHAR" property="cnNotebookTypeId" />
     <result column="cn_notebook_name" jdbcType="VARCHAR" property="cnNotebookName" />
     <result column="cn_notebook_createtime" jdbcType="TIMESTAMP" property="cnNotebookCreatetime" />
+    <result column="cnNotebookCreatetimeFormat" jdbcType="VARCHAR" property="cnNotebookCreatetimeFormat" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.hyl.cloudnote.entity.CnNotebook">
     <result column="cn_notebook_desc" jdbcType="LONGVARCHAR" property="cnNotebookDesc" />
@@ -70,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    cn_notebook_id, cn_user_id, cn_notebook_type_id, cn_notebook_name, cn_notebook_createtime
+    cn_notebook_id, cn_user_id, cn_notebook_type_id, cn_notebook_name, cn_notebook_createtime, date_format(cn_notebook_createtime,'%Y-%c-%d %h:%i:%s') as cnNotebookCreatetimeFormat
   </sql>
   <sql id="Blob_Column_List">
     cn_notebook_desc
@@ -87,7 +88,7 @@
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null">
+    <if test="orderByClause != null and orderByClause != ''">
       order by ${orderByClause}
     </if>
   </select>
@@ -101,7 +102,7 @@
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null">
+    <if test="orderByClause != null  and orderByClause != ''">
       order by ${orderByClause}
     </if>
   </select>

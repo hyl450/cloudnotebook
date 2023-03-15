@@ -28,6 +28,17 @@ public class CnNote implements Serializable {
     @ApiModelProperty(value = "笔记创建时间")
     private Long cnNoteCreateTime;
 
+    @ApiModelProperty(value = "笔记创建时间")
+    private String cnNoteCreateTimeFormat;
+
+    public String getCnNoteCreateTimeFormat() {
+        return cnNoteCreateTimeFormat;
+    }
+
+    public void setCnNoteCreateTimeFormat(String cnNoteCreateTimeFormat) {
+        this.cnNoteCreateTimeFormat = cnNoteCreateTimeFormat;
+    }
+
     @ApiModelProperty(value = "笔记最近修改时间")
     private Long cnNoteLastModifyTime;
 

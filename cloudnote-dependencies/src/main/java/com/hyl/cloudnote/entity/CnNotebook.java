@@ -19,8 +19,29 @@ public class CnNotebook implements Serializable {
 
     private Date cnNotebookCreatetime;
 
+    public String getCnNotebookCreatetimeFormat() {
+        return cnNotebookCreatetimeFormat;
+    }
+
+    public void setCnNotebookCreatetimeFormat(String cnNotebookCreatetimeFormat) {
+        this.cnNotebookCreatetimeFormat = cnNotebookCreatetimeFormat;
+    }
+
+    private String cnNotebookCreatetimeFormat;
+
     @ApiModelProperty(value = "笔记本说明")
     private String cnNotebookDesc;
+
+    @ApiModelProperty(value = "排序")
+    private String orderByClause;
+
+    public String getOrderByClause() {
+        return orderByClause;
+    }
+
+    public void setOrderByClause(String orderByClause) {
+        this.orderByClause = orderByClause;
+    }
 
     private static final long serialVersionUID = 1L;
 

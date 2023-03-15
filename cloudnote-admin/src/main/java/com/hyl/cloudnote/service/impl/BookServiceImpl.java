@@ -32,11 +32,12 @@ public class BookServiceImpl implements BookService {
 	@Resource
 	private CnNoteMapper noteDao;
 	@Transactional(readOnly=true)
-	public NoteResult loadUserBooks(String userId) {
+	public NoteResult loadUserBooks(String userId, String orderByClause) {
 		NoteResult result = new NoteResult();
 		CnNotebookExample example = new CnNotebookExample();
 		CnNotebookExample.Criteria criteria = example.createCriteria();
 		criteria.andCnUserIdEqualTo(userId);
+		example.setOrderByClause(orderByClause);
 		List<CnNotebook> books = bookDao.selectByExample(example);
 		result.setStatus(0);
 		result.setMsg("加载笔记本成功");

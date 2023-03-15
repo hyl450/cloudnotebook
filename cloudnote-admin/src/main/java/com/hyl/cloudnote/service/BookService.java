@@ -10,7 +10,7 @@ import com.hyl.cloudnote.entity.ReqParam;
  * @description :
  */
 public interface BookService {
-	public NoteResult loadUserBooks(String userId);
+	public NoteResult loadUserBooks(String userId, String orderByClause);
 	public NoteResult addBook(String bookName, String userId);
 	public NoteResult deleteBook(String bookId);
 	public NoteResult renameBook(String bookName, String bookId);

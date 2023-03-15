@@ -21,6 +21,7 @@ import com.hyl.cloudnote.mapper.CnNoteMapper;
 import com.hyl.cloudnote.mapper.CnShareMapper;
 import com.hyl.cloudnote.service.NotesService;
 import com.hyl.cloudnote.dto.NoteResult;
+import lombok.val;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,9 +35,15 @@ public class NotesServiceImpl implements NotesService {
 	@Resource
 	private RedisService redisService;
 
-	public NoteResult loadBookNotes(String bookId) {
+	public NoteResult loadBookNotes(String bookId, String orderByCause) {
 		NoteResult result = new NoteResult();
-		List<CnNote> notes = noteDao.findByBookId(bookId);
+//		List<CnNote> notes = noteDao.findByBookId(bookId);
+		CnNoteExample example = new CnNoteExample();
+		CnNoteExample.Criteria criteria = example.createCriteria();
+		criteria.andCnNotebookIdEqualTo(bookId);
+		example.setOrderByClause(orderByCause);
+		List<CnNote> notes = noteDao.selectByExampleWithBLOBs(example);
+
 		result.setStatus(0);
 		result.setMsg("加载笔记列表成功");
 		result.setData(notes);

@@ -30,14 +30,14 @@ public class NoteBooksController {
 	@RequestMapping("/loadbooks.do")
 	@ResponseBody
 	public NoteResult loadbooks(@RequestBody CnNotebook notebook){
-		NoteResult result = bookService.loadUserBooks(notebook.getCnUserId());
+		NoteResult result = bookService.loadUserBooks(notebook.getCnUserId(), notebook.getOrderByClause());
 		return result;
 	}
 
 	@RequestMapping("/loadnotes.do")
 	@ResponseBody
 	public NoteResult loadnotes(@RequestBody CnNotebook cnNotebook){
-		NoteResult result = notesService.loadBookNotes(cnNotebook.getCnNotebookId());
+		NoteResult result = notesService.loadBookNotes(cnNotebook.getCnNotebookId(), cnNotebook.getOrderByClause());
 		return result;
 	}
 

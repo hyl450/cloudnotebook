@@ -12,7 +12,7 @@ import com.hyl.cloudnote.entity.ReqParam;
  * @description :
  */
 public interface NotesService {
-	public NoteResult loadBookNotes(String bookId);
+	public NoteResult loadBookNotes(String bookId, String orderByCause);
 	public NoteResult loadNote(String noteId);
 	public NoteResult addNote(String userId, String bookId, String noteName);
 	public NoteResult saveNote(String noteId, String noteName, String noteDesc);
