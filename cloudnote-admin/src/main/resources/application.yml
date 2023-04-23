@@ -5,7 +5,7 @@ spring:
     # nacos注册
     nacos:
       discovery:
-        server-addr: 192.168.150.128:8848 # nacos地址
+        server-addr: 192.168.226.128:8848 # nacos地址
   profiles:
     active: dev #默认为开发环境
   servlet:
